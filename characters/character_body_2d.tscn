@@ -1,10 +1,39 @@
-[gd_scene load_steps=31 format=3 uid="uid://dsbyogmmvhqom"]
+[gd_scene load_steps=39 format=3 uid="uid://dsbyogmmvhqom"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_6mnbs"]
 [ext_resource type="Texture2D" uid="uid://uoxc1c0w7mtv" path="res://art/Main Characters/Ninja Frog/Idle (32x32).png" id="1_p6wkt"]
 [ext_resource type="Texture2D" uid="uid://c2xxeve28htbh" path="res://art/Main Characters/Ninja Frog/Fall (32x32).png" id="2_3ybif"]
+[ext_resource type="Texture2D" uid="uid://egs3e603lkd3" path="res://art/Main Characters/Ninja Frog/Hit (32x32).png" id="3_oyotj"]
 [ext_resource type="Texture2D" uid="uid://bx7w440ok6dof" path="res://art/Main Characters/Ninja Frog/Jump (32x32).png" id="3_pdh4a"]
 [ext_resource type="Texture2D" uid="uid://c3jl8vd1ok03o" path="res://art/Main Characters/Ninja Frog/Run (32x32).png" id="4_it8g8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h75x6"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dri1r"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pg54"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yydb"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufyyr"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l57t6"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psip3"]
+atlas = ExtResource("3_oyotj")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqhxl"]
 atlas = ExtResource("1_p6wkt")
@@ -110,6 +139,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_h75x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dri1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pg54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufyyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l57t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psip3")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gqhxl")
 }, {
 "duration": 1.0,
@@ -201,14 +256,15 @@ radius = 32.0
 height = 92.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_6mnbs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
 scale = Vector2(3.0625, 3.0625)
 sprite_frames = SubResource("SpriteFrames_iggs0")
-animation = &"run"
-frame_progress = 0.506438
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
