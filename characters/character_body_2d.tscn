@@ -213,3 +213,9 @@ frame_progress = 0.506438
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_guvas")
+
+[node name="RightWall" type="RayCast2D" parent="."]
+target_position = Vector2(35, 0)
+
+[node name="LeftWall" type="RayCast2D" parent="."]
+target_position = Vector2(-35, 0)
