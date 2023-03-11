@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1nq416nr3fcy"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_xpit8"]
+[ext_resource type="Texture2D" uid="uid://cye4l8c7g6x41" path="res://art/Background/background.png" id="2_svw6d"]
+[ext_resource type="Texture2D" uid="uid://w4kbdnsoulg0" path="res://art/Items/Credits/CREDITS.png" id="3_0ax7w"]
+[ext_resource type="Texture2D" uid="uid://brb4gbvpk0f7f" path="res://art/Items/Credits/credits2.png" id="4_1vdk3"]
+[ext_resource type="Texture2D" uid="uid://bruhaxrsodf6j" path="res://art/Items/Credits/credits4.png" id="5_dqy1o"]
+[ext_resource type="Texture2D" uid="uid://dlq8kl76ean0x" path="res://art/Items/Credits/credits4b.png" id="6_soprl"]
+[ext_resource type="Texture2D" uid="uid://d4hlpmonvd6by" path="res://art/Items/Credits/credits4c.png" id="7_ivmjd"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 5.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xpit8")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(158, 133)
+scale = Vector2(0.332176, 0.332176)
+texture = ExtResource("2_svw6d")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 165.0
+offset_right = 214.0
+offset_bottom = 199.0
+text = "Back"
+
+[node name="Credits2" type="Sprite2D" parent="."]
+position = Vector2(186, 20)
+scale = Vector2(0.356557, 0.487705)
+texture = ExtResource("3_0ax7w")
+
+[node name="Credits3" type="Sprite2D" parent="."]
+position = Vector2(186, 59)
+scale = Vector2(0.407478, 0.395455)
+texture = ExtResource("4_1vdk3")
+
+[node name="Credits4" type="Sprite2D" parent="."]
+position = Vector2(57, 96)
+scale = Vector2(0.244629, 0.244629)
+texture = ExtResource("5_dqy1o")
+
+[node name="Credits4b" type="Sprite2D" parent="."]
+position = Vector2(184, 90)
+scale = Vector2(0.2375, 0.2375)
+texture = ExtResource("6_soprl")
+
+[node name="Credits4c" type="Sprite2D" parent="."]
+position = Vector2(326, 84)
+scale = Vector2(0.242187, 0.242187)
+texture = ExtResource("7_ivmjd")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
