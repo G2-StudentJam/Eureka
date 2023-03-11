@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bto64mwdvn6h3"
-path="res://.godot/imported/Guantes.png-aeedf4006e26f4edbf2586f2f1bc5a91.ctex"
+uid="uid://dm716oudictnm"
+path="res://.godot/imported/paracaida.png-898c110ddbca647c86fb38384b9ab4f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guantes.png"
-dest_files=["res://.godot/imported/Guantes.png-aeedf4006e26f4edbf2586f2f1bc5a91.ctex"]
+source_file="res://Sprites/paracaida.png"
+dest_files=["res://.godot/imported/paracaida.png-898c110ddbca647c86fb38384b9ab4f2.ctex"]
 
 [params]
 

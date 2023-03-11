@@ -1,16 +1,37 @@
 extends CanvasLayer
 
 var apple = true
+var guantes = true
+var calcetin = true
 
 func _ready():
 	apple = false
-	var AppleNode = get_parent().get_parent().get_node("Objeto").get_node("Objeto2D")
-	AppleNode.botas_recogidas.connect(pipo)
-	if (apple == true):
-		print ("hola2")
+	var BotasNode = get_parent().get_parent().get_node("Botas").get_node("Botas2D")
+	BotasNode.botas_recogidas.connect(pipo)
 	$Botas.visible = apple
+	
+	guantes = false
+	var GuantesNode = get_parent().get_parent().get_node("Guantes").get_node("Area2D")
+	GuantesNode.guantes_recogidos.connect(papi)
+	$Guantes.visible = guantes
+	
+	calcetin = false
+	var CalcetinNode = get_parent().get_parent().get_node("Calcetin").get_node("Area2D")
+	CalcetinNode.calc_recogidos.connect(pupa)
+	$Calcetin.visible = calcetin
 
 func pipo():
 	print("Ya puedes saltar")
 	apple = true
 	$Botas.visible = apple
+
+func papi():
+	print("Escalar habilitado")
+	guantes = true
+	$Guantes.visible = guantes
+	
+func pupa():
+	print("Andar habilitado")
+	calcetin = true
+	$Calcetin.visible = calcetin
+	

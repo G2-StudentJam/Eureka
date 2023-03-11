@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bto64mwdvn6h3"
-path="res://.godot/imported/Guantes.png-aeedf4006e26f4edbf2586f2f1bc5a91.ctex"
+uid="uid://bx5n5sy74bh6k"
+path="res://.godot/imported/mountains_a.png-050cc9e050fb8e46095868987c884579.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guantes.png"
-dest_files=["res://.godot/imported/Guantes.png-aeedf4006e26f4edbf2586f2f1bc5a91.ctex"]
+source_file="res://Backgrounds/mountains_a.png"
+dest_files=["res://.godot/imported/mountains_a.png-050cc9e050fb8e46095868987c884579.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

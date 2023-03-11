@@ -20,6 +20,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var rng = RandomNumberGenerator.new()
 var can_jump = true
 var first_cycle = true
+var can_paraglide = true
+var is_paragliding = true
 
 func nextToWall():
 	return is_raycast_colliding(right_wall, CLIMB_WALL) or is_raycast_colliding(left_wall, CLIMB_WALL)
@@ -46,57 +48,68 @@ func jump(multiplier=1, play_sound=true):
 	
 
 func _physics_process(delta): 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		
-		if (velocity.y <= 0):
-			animated_sprite.play("jump")
-		else:
-			animated_sprite.play("fall")
-			
-			
-		if (coyotetimer.is_stopped() and can_jump and first_cycle):
-			coyotetimer.start()
-			first_cycle = false	
-					
-	else:
-		can_jump = true
-		first_cycle = true
-		
-		if not is_climbing:
-			if (velocity.x == 0):
-				animated_sprite.play("idle")
-			else:
-				animated_sprite.play("run")
-
-	# Handle Jump
-	if $CanvasLayer/Botas.visible and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
-		jump()
-		
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-
 	
-	if direction:
-		velocity.x = direction * SPEED
-		
-		if (velocity.x < 0):
-			animated_sprite.flip_h = true
-		if (velocity.x > 0): 
-			animated_sprite.flip_h = false
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	move_and_slide()
-	wall_climb()
+		if not is_on_floor():
+			
+			if (Input.is_action_pressed("paraglider")):
+				if (can_paraglide):
+					velocity.y = 0
+					can_paraglide = false
+				velocity.y += gravity/5 * delta
+				is_paragliding = true
+			else:
+				velocity.y += gravity * delta
+				is_paragliding = false
+			
+			if (velocity.y <= 0):
+				animated_sprite.play("jump")
+			else:
+				animated_sprite.play("fall")
+				
+				
+			if (coyotetimer.is_stopped() and can_jump and first_cycle):
+				coyotetimer.start()
+				first_cycle = false	
+						
+		else:
+			can_paraglide = true
+			can_jump = true
+			first_cycle = true
+			
+			if not is_climbing:
+				if (velocity.x == 0):
+					animated_sprite.play("idle")
+				else:
+					animated_sprite.play("run")
+
+		# Handle Jump
+		if $CanvasLayer/Botas.visible and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
+			jump()
+			
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		if ($CanvasLayer/Calcetin.visible):
+			var direction = Input.get_axis("ui_left", "ui_right")
+
+			
+			if direction:
+				velocity.x = direction * SPEED
+				
+				if (velocity.x < 0):
+					animated_sprite.flip_h = true
+				if (velocity.x > 0): 
+					animated_sprite.flip_h = false
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+		move_and_slide()
+		wall_climb()
 
 func wall_climb():
 	var vertical_direction = Input.get_axis("ui_down", "ui_up")
 	
-	if (Input.is_action_pressed("climb") and nextToWall()):
+	if (Input.is_action_pressed("climb") and nextToWall()) and $CanvasLayer/Guantes.visible:
 		animated_sprite.play("hit")
 		is_climbing = true
 	else:
