@@ -7,10 +7,15 @@ const JUMP_VELOCITY = -300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var coyotetimer = $CoyoteTimer
 var rng = RandomNumberGenerator.new()
+var can_jump = true
+var first_cycle = true
 
 func _physics_process(delta): 
 	# Add the gravity.
+	
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
@@ -18,15 +23,29 @@ func _physics_process(delta):
 			animated_sprite.animation = "jump"
 		else:
 			animated_sprite.animation = "fall"
+			
+			
+		if (coyotetimer.is_stopped() and can_jump and first_cycle):
+			coyotetimer.start()
+			first_cycle = false
+		
 	else:
-
+		can_jump = true
+		first_cycle = true
+		
 		if (velocity.x == 0):
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
-
+	
+	#if(!coyotetimer.is_stopped()):
+	#	print("ON")
+	#if(coyotetimer.is_stopped()):
+	#	print("OFF")
+	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
+		can_jump = false
 		velocity.y = JUMP_VELOCITY
 		var jump_sound = rng.randi_range(1, 3)
 		if jump_sound == 1:
