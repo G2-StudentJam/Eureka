@@ -1,8 +1,9 @@
 extends Area2D
 
-signal recogido
+signal botas_recogidas
 
 func _on_body_entered(body):
-	recogido.emit()
-	queue_free()
+	if (body.get_name() == "Player"):
+		botas_recogidas.emit()
+		queue_free()
 	pass

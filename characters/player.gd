@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var rng = RandomNumberGenerator.new()
 var can_jump = true
 var first_cycle = true
-
+		
 func _physics_process(delta): 
 	# Add the gravity.
 	
@@ -43,8 +43,11 @@ func _physics_process(delta):
 	#if(coyotetimer.is_stopped()):
 	#	print("OFF")
 	
+	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
+	
+	
+	if $CanvasLayer/Botas.visible and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
 		can_jump = false
 		velocity.y = JUMP_VELOCITY
 		var jump_sound = rng.randi_range(1, 3)

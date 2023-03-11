@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://kgxy563rt305" path="res://art/Background/Brown.png" id="1_wdjwm"]
 [ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/character_body_2d.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
-[ext_resource type="Texture2D" uid="uid://dcxtisnvu6qqs" path="res://art/Items/Fruits/Apple.png" id="3_381kr"]
 [ext_resource type="Script" path="res://UI.gd" id="3_dpn5c"]
 [ext_resource type="PackedScene" uid="uid://c16wxipsyukos" path="res://Manzana.tscn" id="3_nmot2"]
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="4_n1mbn"]
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="5_j3taf"]
 [ext_resource type="PackedScene" uid="uid://bsk83rqptde5o" path="res://pincho.tscn" id="6_03fsk"]
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="6_p0vaa"]
+[ext_resource type="Texture2D" uid="uid://mav6rhc4ww8h" path="res://Sprites/Botas.png" id="6_ujfrp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d473s"]
 texture = ExtResource("1_s1y5s")
@@ -485,12 +485,13 @@ offset_right = 114.0
 offset_bottom = 25.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6yrug")
 
-[node name="Manzanita" type="TextureRect" parent="Player/CanvasLayer"]
-offset_left = -512.0
-offset_top = -5.0
-offset_right = 32.0
-offset_bottom = 35.0
-texture = ExtResource("3_381kr")
+[node name="Botas" type="TextureRect" parent="Player/CanvasLayer"]
+offset_left = -5.0
+offset_top = 3.0
+offset_right = 5281.0
+offset_bottom = 1765.0
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_ujfrp")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, 1.52588e-05)
@@ -522,4 +523,4 @@ position = Vector2(8, -14)
 scale = Vector2(0.241609, 0.241609)
 
 [node name="Objeto" parent="." instance=ExtResource("3_nmot2")]
-position = Vector2(123, -3)
+position = Vector2(122, 6)
