@@ -114,13 +114,14 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 
+
 	if ($CanvasLayer/Calcetin.visible):
 		if (SPEED < 200):
 			SPEED = 200
 	else:
 		SPEED = 0.2		
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction / abs(direction) * SPEED #dividido por el valor absoluto para quedarnos solo con el signo y que la velocidad no dependa del joystick/flecha
 
 		if (velocity.x <= 0):
 			animation_direction = "left"
@@ -139,7 +140,7 @@ func _physics_process(delta):
 
 func wall_climb(delta):
 	var vertical_direction = Input.get_axis("ui_down", "ui_up")
-	if (Input.is_action_pressed("climb") and nextToWall() and stamina > 0):
+	if (Input.is_action_pressed("climb") and nextToWall() and stamina > 0 and $CanvasLayer/Guantes.visible):
 		if current_animation != "climb":
 			#starts climbing
 			print("empieza a escalar")
