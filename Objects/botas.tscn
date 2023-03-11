@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c16wxipsyukos"]
+
+[ext_resource type="Script" path="res://Scripts/Objeto.gd" id="1_sg8ix"]
+[ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://Sprites/Botas.png" id="2_gyckp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsg27"]
+radius = 6.0
+
+[node name="Botas" type="Node2D"]
+
+[node name="Botas2D" type="Area2D" parent="."]
+script = ExtResource("1_sg8ix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Botas2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_fsg27")
+
+[node name="Botas" type="Sprite2D" parent="Botas2D"]
+position = Vector2(0, -2)
+scale = Vector2(0.00510783, 0.00510783)
+texture = ExtResource("2_gyckp")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Botas2D" to="Botas2D" method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="Botas2D" method="_on_timer_timeout"]
