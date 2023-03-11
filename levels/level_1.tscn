@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd8qe2nyavq1x"]
+[gd_scene load_steps=11 format=3 uid="uid://dd8qe2nyavq1x"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
-[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/character_body_2d.tscn" id="2_kwqsi"]
+[ext_resource type="Texture2D" uid="uid://chyp7r2ingemf" path="res://4172161.jpg" id="1_vrwtt"]
+[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/player.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="4_n1mbn"]
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="5_j3taf"]
@@ -466,6 +467,11 @@ sources/0 = SubResource("TileSetAtlasSource_d473s")
 
 [node name="Level1" type="Node2D"]
 position = Vector2(48, 46)
+
+[node name="4172161" type="Sprite2D" parent="."]
+position = Vector2(746, -123.25)
+scale = Vector2(0.64, 0.42125)
+texture = ExtResource("1_vrwtt")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2, 9)
