@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dd8qe2nyavq1x"]
+[gd_scene load_steps=16 format=3 uid="uid://dd8qe2nyavq1x"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
 [ext_resource type="Texture2D" uid="uid://kgxy563rt305" path="res://art/Background/Brown.png" id="1_wdjwm"]
-[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/character_body_2d.tscn" id="2_kwqsi"]
+[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/player.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
 [ext_resource type="Texture2D" uid="uid://dcxtisnvu6qqs" path="res://art/Items/Fruits/Apple.png" id="3_381kr"]
 [ext_resource type="Script" path="res://UI.gd" id="3_dpn5c"]
@@ -465,8 +465,8 @@ corner_radius_bottom_left = 15
 position = Vector2(48, 46)
 
 [node name="Brown" type="Sprite2D" parent="."]
-position = Vector2(184, -24)
-scale = Vector2(12.125, 5.0625)
+position = Vector2(701, -184)
+scale = Vector2(28.2813, 10.0625)
 texture = ExtResource("1_wdjwm")
 
 [node name="Pincho" parent="." instance=ExtResource("6_03fsk")]
@@ -517,10 +517,6 @@ volume_db = -5.0
 [node name="Jump3" type="AudioStreamPlayer" parent="Player/Background"]
 stream = ExtResource("6_p0vaa")
 volume_db = -5.0
-
-[node name="CoyoteTimer" type="Timer" parent="Player"]
-wait_time = 0.1
-one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(18, -14)

@@ -4,8 +4,10 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const CLIMB_VELOCITY = -100.0
-var is_climbing = false
 const CLIMB_WALL = "WallClimb"
+var is_climbing = false
+var current_animation = "idle"
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -21,6 +23,16 @@ var rng = RandomNumberGenerator.new()
 var can_jump = true
 var first_cycle = true
 
+func animate(animation):
+	if (animation == "idle"):
+		animated_sprite.play(animation)
+		return
+		
+	if velocity.x >= 0:
+		animated_sprite.play(animation + "_right")
+	else:
+		animated_sprite.play(animation + "_left")
+
 func nextToWall():
 	return is_raycast_colliding(right_wall, CLIMB_WALL) or is_raycast_colliding(left_wall, CLIMB_WALL)
 
@@ -32,7 +44,7 @@ func aboutToFinishClimb():
 	var left_side = is_raycast_colliding(left_wall, CLIMB_WALL) and not is_raycast_colliding(top_left_wall, CLIMB_WALL)
 	return right_side or left_side
 	
-func jump(multiplier=1, play_sound=true):
+func jump(multiplier=1.0, play_sound=true):
 	can_jump = false
 	velocity.y = JUMP_VELOCITY * multiplier
 	if (play_sound):
@@ -51,9 +63,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		
 		if (velocity.y <= 0):
-			animated_sprite.play("jump")
+			current_animation = "jump"
 		else:
-			animated_sprite.play("fall")
+			current_animation = "fall"
 			
 			
 		if (coyotetimer.is_stopped() and can_jump and first_cycle):
@@ -66,9 +78,9 @@ func _physics_process(delta):
 		
 		if not is_climbing:
 			if (velocity.x == 0):
-				animated_sprite.play("idle")
+				current_animation = "idle"
 			else:
-				animated_sprite.play("run")
+				current_animation = "run"
 
 	# Handle Jump
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
@@ -82,22 +94,23 @@ func _physics_process(delta):
 	
 	if direction:
 		velocity.x = direction * SPEED
-		
-		if (velocity.x < 0):
-			animated_sprite.flip_h = true
-		if (velocity.x > 0): 
-			animated_sprite.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+		
+	# comprobar que no caiga al vacio
+	if position.y > 600:
+		get_tree().reload_current_scene()	
 	move_and_slide()
 	wall_climb()
+	animate(current_animation)
 
 func wall_climb():
 	var vertical_direction = Input.get_axis("ui_down", "ui_up")
 	
 	if (Input.is_action_pressed("climb") and nextToWall()):
-		animated_sprite.play("hit")
+		if current_animation != "climb":
+			current_animation = "climb"
 		is_climbing = true
 	else:
 		is_climbing = false
