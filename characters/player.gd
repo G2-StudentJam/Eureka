@@ -8,7 +8,8 @@ const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var right_wall = $RightWall
-@onready var left_wall = $LeftWall
+@onready var left_wall = $LeftWallvar 
+rng = RandomNumberGenerator.new()
 
 func _physics_process(delta): 
 	
@@ -33,6 +34,14 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		var jump_sound = rng.randi_range(1, 3)
+		if jump_sound == 1:
+			$Background/Jump1.play()
+		if jump_sound == 2:
+			$Background/Jump2.play()
+		if jump_sound == 3:
+			$Background/Jump3.play()
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

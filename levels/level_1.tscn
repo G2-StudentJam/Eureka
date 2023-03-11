@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd8qe2nyavq1x"]
+[gd_scene load_steps=9 format=3 uid="uid://hr85uh73inak"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
 [ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/character_body_2d.tscn" id="2_kwqsi"]
+[ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
+[ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="4_n1mbn"]
+[ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="5_j3taf"]
+[ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="6_p0vaa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d473s"]
 texture = ExtResource("1_s1y5s")
@@ -475,6 +479,23 @@ scale = Vector2(0.241609, 0.241609)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, 1.52588e-05)
 remote_path = NodePath("../../Camera2D")
+
+[node name="Background" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("3_1q33i")
+volume_db = -20.0
+autoplay = true
+
+[node name="Jump1" type="AudioStreamPlayer" parent="Player/Background"]
+stream = ExtResource("4_n1mbn")
+volume_db = -5.0
+
+[node name="Jump2" type="AudioStreamPlayer" parent="Player/Background"]
+stream = ExtResource("5_j3taf")
+volume_db = -5.0
+
+[node name="Jump3" type="AudioStreamPlayer" parent="Player/Background"]
+stream = ExtResource("6_p0vaa")
+volume_db = -5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, -14)
