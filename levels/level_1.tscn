@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd8qe2nyavq1x"]
+[gd_scene load_steps=15 format=3 uid="uid://dd8qe2nyavq1x"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
-[ext_resource type="Texture2D" uid="uid://chyp7r2ingemf" path="res://4172161.jpg" id="1_vrwtt"]
-[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/player.tscn" id="2_kwqsi"]
+[ext_resource type="Texture2D" uid="uid://kgxy563rt305" path="res://art/Background/Brown.png" id="1_wdjwm"]
+[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/character_body_2d.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
+[ext_resource type="Texture2D" uid="uid://dcxtisnvu6qqs" path="res://art/Items/Fruits/Apple.png" id="3_381kr"]
+[ext_resource type="Script" path="res://UI.gd" id="3_dpn5c"]
+[ext_resource type="PackedScene" uid="uid://c16wxipsyukos" path="res://Manzana.tscn" id="3_nmot2"]
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="4_n1mbn"]
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="5_j3taf"]
+[ext_resource type="PackedScene" uid="uid://bsk83rqptde5o" path="res://pincho.tscn" id="6_03fsk"]
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="6_p0vaa"]
 [ext_resource type="PackedScene" uid="uid://bfey4u8tuhie7" path="res://elements/climb_wall.tscn" id="7_jq5nl"]
 
@@ -55,6 +59,7 @@ texture = ExtResource("1_s1y5s")
 14:0/0 = 0
 14:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:0/0/physics_layer_0/angular_velocity = 0.0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:0/0 = 0
 15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:0/0/physics_layer_0/angular_velocity = 0.0
@@ -214,12 +219,6 @@ texture = ExtResource("1_s1y5s")
 19:4/0 = 0
 19:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:4/0/physics_layer_0/angular_velocity = 0.0
-20:4/0 = 0
-20:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:4/0/physics_layer_0/angular_velocity = 0.0
-21:4/0 = 0
-21:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-21:4/0/physics_layer_0/angular_velocity = 0.0
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
@@ -273,12 +272,6 @@ texture = ExtResource("1_s1y5s")
 19:5/0 = 0
 19:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:5/0/physics_layer_0/angular_velocity = 0.0
-20:5/0 = 0
-20:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:5/0/physics_layer_0/angular_velocity = 0.0
-21:5/0 = 0
-21:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-21:5/0/physics_layer_0/angular_velocity = 0.0
 0:6/0 = 0
 0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:6/0/physics_layer_0/angular_velocity = 0.0
@@ -366,9 +359,6 @@ texture = ExtResource("1_s1y5s")
 19:8/0 = 0
 19:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:8/0/physics_layer_0/angular_velocity = 0.0
-20:8/0 = 0
-20:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:8/0/physics_layer_0/angular_velocity = 0.0
 0:9/0 = 0
 0:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:9/0/physics_layer_0/angular_velocity = 0.0
@@ -421,9 +411,6 @@ texture = ExtResource("1_s1y5s")
 19:9/0 = 0
 19:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:9/0/physics_layer_0/angular_velocity = 0.0
-20:9/0 = 0
-20:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:9/0/physics_layer_0/angular_velocity = 0.0
 0:10/0 = 0
 0:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:10/0/physics_layer_0/angular_velocity = 0.0
@@ -457,21 +444,33 @@ texture = ExtResource("1_s1y5s")
 19:10/0 = 0
 19:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:10/0/physics_layer_0/angular_velocity = 0.0
-20:10/0 = 0
-20:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:10/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_ybwrc"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_d473s")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yrug"]
+bg_color = Color(0.776471, 0.509804, 0.603922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Level1" type="Node2D"]
 position = Vector2(48, 46)
 
-[node name="4172161" type="Sprite2D" parent="."]
-position = Vector2(746, -123.25)
-scale = Vector2(0.64, 0.42125)
-texture = ExtResource("1_vrwtt")
+[node name="Brown" type="Sprite2D" parent="."]
+position = Vector2(184, -24)
+scale = Vector2(12.125, 5.0625)
+texture = ExtResource("1_wdjwm")
+
+[node name="Pincho" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(195, 12)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2, 9)
@@ -482,6 +481,21 @@ layer_0/tile_data = PackedInt32Array(65534, 393216, 0, 65535, 458752, 0, 0, 4587
 [node name="Player" parent="." instance=ExtResource("2_kwqsi")]
 position = Vector2(18, -14)
 scale = Vector2(0.241609, 0.241609)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+script = ExtResource("3_dpn5c")
+
+[node name="Panel" type="Panel" parent="Player/CanvasLayer"]
+offset_right = 114.0
+offset_bottom = 25.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yrug")
+
+[node name="Manzanita" type="TextureRect" parent="Player/CanvasLayer"]
+offset_left = -512.0
+offset_top = -5.0
+offset_right = 32.0
+offset_bottom = 35.0
+texture = ExtResource("3_381kr")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, 1.52588e-05)
