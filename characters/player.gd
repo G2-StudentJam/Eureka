@@ -5,12 +5,17 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 var is_climbing = false
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var right_wall = $RightWall
 @onready var left_wall = $LeftWall
+
+
+
 var rng = RandomNumberGenerator.new()
+
 
 func _physics_process(delta): 
 	
@@ -70,7 +75,7 @@ func nextToWall():
 	return nextToRightWall() or nextToLeftWall()
 
 func nextToRightWall():
-	return right_wall.is_colliding()
+	return right_wall.is_colliding() and right_wall.get_collider().get("name") == "WallClimb"
 	
 func nextToLeftWall():
-	return left_wall.is_colliding()
+	return left_wall.is_colliding() and left_wall.get_collider().get("name") == "WallClimb"
