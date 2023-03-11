@@ -486,6 +486,9 @@ scale = Vector2(0.241609, 0.241609)
 position = Vector2(634, -26)
 
 [node name="ClimbWall2" parent="." instance=ExtResource("7_jq5nl")]
+position = Vector2(634, -102)
+
+[node name="ClimbWall3" parent="." instance=ExtResource("7_jq5nl")]
 position = Vector2(634, -94)
 
 [node name="Objeto" parent="." instance=ExtResource("3_nmot2")]

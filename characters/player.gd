@@ -23,7 +23,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var left_wall = $LeftWall
 @onready var top_right_wall = $TopRightWall
 @onready var top_left_wall = $TopLeftWall
-@onready var stamina_bar = $Stamina/StaminaBar
+@onready var stamina_bar = $Stamina/Sprite2D/StaminaBar
+@onready var stamina_show_timer = $StaminaShowTimer
 
 
 var rng = RandomNumberGenerator.new()
@@ -61,8 +62,11 @@ func jump(multiplier=1.0, play_sound=true):
 			$Background/Jump3.play()
 
 func set_stamina(new_value):
-	stamina = new_value
-	stamina_changed.emit(new_value)
+	if stamina != new_value:
+		stamina = new_value
+		stamina_changed.emit(new_value)
+		if new_value == MAX_STAMINA && stamina_show_timer.is_stopped():
+			stamina_show_timer.start()
 
 func _physics_process(delta): 	
 	# Add the gravity.
