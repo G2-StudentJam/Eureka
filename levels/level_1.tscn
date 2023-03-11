@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://efvmgu5hqrf6"]
+[gd_scene load_steps=22 format=3 uid="uid://dd8qe2nyavq1x"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
 [ext_resource type="Texture2D" uid="uid://du3gx7v2hqlfg" path="res://Backgrounds/trees.png" id="2_2mqmy"]
-[ext_resource type="PackedScene" path="res://characters/player.tscn" id="2_kwqsi"]
+[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/player.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
 [ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="3_acvkj"]
 [ext_resource type="Script" path="res://UI.gd" id="3_dpn5c"]
@@ -512,7 +512,6 @@ scale = Vector2(0.241609, 0.241609)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1.52588e-05)
-scale = Vector2(1, 1)
 limit_left = 0
 limit_right = 1500
 editor_draw_limits = true

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0kgpm4vliev6"]
+
+[ext_resource type="Script" path="res://elements/stamina_bar.gd" id="1_fml5v"]
+[ext_resource type="Texture2D" uid="uid://og6pyy53tq16" path="res://art/Other/stamina_bar_full.png" id="2_cwocl"]
+
+[node name="Stamina" type="Control"]
+layout_mode = 3
+anchor_right = 0.227
+anchor_bottom = 0.398
+offset_right = 0.495972
+offset_bottom = 0.0959778
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fml5v")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.099
+offset_right = 255.944
+offset_bottom = 255.901
+value = 100.0
+rounded = true
+fill_mode = 5
+texture_progress = ExtResource("2_cwocl")
