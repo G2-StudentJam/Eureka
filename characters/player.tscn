@@ -213,8 +213,8 @@ shape = SubResource("RectangleShape2D_twxvv")
 position = Vector2(-2, 2)
 scale = Vector2(0.370625, 0.370625)
 sprite_frames = SubResource("SpriteFrames_iggs0")
-animation = &"climb_left"
-frame_progress = 0.204585
+animation = &"jump_left"
+frame_progress = 0.202409
 
 [node name="RightWall" type="RayCast2D" parent="."]
 position = Vector2(0, 22)
