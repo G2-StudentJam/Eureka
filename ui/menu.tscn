@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bx7sfk6i2u456"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_8bewx"]
-[ext_resource type="Texture2D" uid="uid://b2uaqwnq800f4" path="res://art/Menu/Title_temp.png" id="2_rx55a"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_yjatg"]
+[ext_resource type="Texture2D" uid="uid://b2uaqwnq800f4" path="res://art/Menu/Title_temp.png" id="2_qkvpb"]
 
 [sub_resource type="Animation" id="Animation_7ftid"]
 resource_name = "Title_size"
@@ -34,7 +34,7 @@ offset_top = -2.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8bewx")
+script = ExtResource("1_yjatg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -73,7 +73,7 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
 position = Vector2(194, 52)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_rx55a")
+texture = ExtResource("2_qkvpb")
 
 [connection signal="pressed" from="VBoxContainer/Start button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
