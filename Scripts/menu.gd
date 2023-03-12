@@ -1,16 +1,15 @@
 extends Control
 
 func _ready():
-	$"VBoxContainer/Start button".grab_focus()
+	$"Start button".grab_focus()
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://levels/level_1.tscn")
 
 
-
-func _on_quit_button_pressed():
-	get_tree().quit()
-
-
 func _on_credits_pressed():
-	get_tree().change_scene_to_file("res://credits.tscn")
+	get_tree().change_scene_to_file("res://ui/credits.tscn")
+
+
+func _on_quit_pressed():
+	get_tree().quit()

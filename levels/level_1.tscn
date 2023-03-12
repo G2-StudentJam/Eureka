@@ -1,14 +1,15 @@
-[gd_scene load_steps=35 format=3 uid="uid://dwdqfn5rmtupn"]
+[gd_scene load_steps=38 format=3 uid="uid://dd8qe2nyavq1x"]
 
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_mxg1t"]
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
-[ext_resource type="PackedScene" path="res://characters/player.tscn" id="2_kwqsi"]
+[ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/player.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
 [ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="3_acvkj"]
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="4_n1mbn"]
 [ext_resource type="Texture2D" uid="uid://cggbwg3i1xe5g" path="res://art/Terrain/terreno_arreglado.png" id="5_74b7f"]
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="5_j3taf"]
 [ext_resource type="Texture2D" uid="uid://c2pt1m1cgnno4" path="res://art/Terrain/muros_arreglado.png" id="5_jy08b"]
-[ext_resource type="PackedScene" path="res://elements/paracaidas.tscn" id="6_fahfc"]
+[ext_resource type="PackedScene" uid="uid://dyuvig63ke4ij" path="res://elements/paracaidas.tscn" id="6_fahfc"]
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="6_p0vaa"]
 [ext_resource type="Texture2D" uid="uid://bdk433e0w1tkp" path="res://art/Terrain/escaleras_arreglado.png" id="6_wcm3h"]
 [ext_resource type="PackedScene" uid="uid://bfey4u8tuhie7" path="res://elements/climb_wall.tscn" id="7_jq5nl"]
@@ -18,14 +19,16 @@
 [ext_resource type="PackedScene" uid="uid://dhtpdlgtoalxb" path="res://Objects/tuerca.tscn" id="9_1g2xb"]
 [ext_resource type="PackedScene" uid="uid://q1efjrhmy1jb" path="res://Objects/tornillo.tscn" id="10_pn6yr"]
 [ext_resource type="PackedScene" uid="uid://cq40v6rsni5w1" path="res://Objects/wrench.tscn" id="11_b6exi"]
-[ext_resource type="PackedScene" path="res://Objects/guantes.tscn" id="12_e0qc0"]
-[ext_resource type="PackedScene" path="res://Objects/botas.tscn" id="12_lq3gw"]
-[ext_resource type="PackedScene" path="res://Objects/calcetin.tscn" id="16_hy58p"]
+[ext_resource type="PackedScene" uid="uid://dg6n3htv0a8nj" path="res://Objects/guantes.tscn" id="12_e0qc0"]
+[ext_resource type="PackedScene" uid="uid://cguag0ndythv7" path="res://Objects/botas.tscn" id="12_lq3gw"]
+[ext_resource type="PackedScene" uid="uid://b30huis7wd2ie" path="res://Objects/calcetin.tscn" id="16_hy58p"]
 [ext_resource type="Script" path="res://ui/UI.gd" id="18_v8qaa"]
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://art/Sprites/Botas.png" id="19_tvyc0"]
 [ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="20_11ifd"]
 [ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://art/Sprites/calcetin.png" id="21_1tujr"]
 [ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://art/Sprites/paracaida.png" id="22_xmcpr"]
+[ext_resource type="PackedScene" uid="uid://grjs8vcnqpb4" path="res://elements/pincho.tscn" id="27_dj0pa"]
+[ext_resource type="PackedScene" uid="uid://m7swfte4da6b" path="res://elements/pinchos_moviles.tscn" id="29_4jnwk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d473s"]
 texture = ExtResource("1_s1y5s")
@@ -865,6 +868,7 @@ corner_radius_bottom_left = 8
 
 [node name="Level1" type="Node2D"]
 position = Vector2(48, 46)
+script = ExtResource("1_mxg1t")
 
 [node name="ClimbWall" parent="." instance=ExtResource("7_jq5nl")]
 position = Vector2(633, -14)
@@ -894,7 +898,7 @@ position = Vector2(730, 0)
 scale = Vector2(0.7, 0.7)
 
 [node name="Calcetin" parent="." instance=ExtResource("16_hy58p")]
-position = Vector2(17, -154)
+position = Vector2(23, -130)
 
 [node name="Tuerca" parent="." instance=ExtResource("9_1g2xb")]
 position = Vector2(702, -64)
@@ -918,6 +922,7 @@ position = Vector2(959, -112)
 position = Vector2(137, -63)
 
 [node name="Player" parent="." instance=ExtResource("2_kwqsi")]
+process_mode = 1
 position = Vector2(18, -14)
 scale = Vector2(0.241609, 0.241609)
 metadata/_edit_lock_ = true
@@ -998,6 +1003,14 @@ volume_db = -5.0
 [node name="Jump3" type="AudioStreamPlayer" parent="Player/Background"]
 stream = ExtResource("6_p0vaa")
 volume_db = -5.0
+
+[node name="Pincho" parent="." instance=ExtResource("27_dj0pa")]
+position = Vector2(410.981, -82)
+
+[node name="Paus" type="CanvasLayer" parent="."]
+
+[node name="Pinchos moviles" parent="." instance=ExtResource("29_4jnwk")]
+position = Vector2(271, -334)
 
 [connection signal="guante_recogido" from="Guantes" to="Player" method="_on_guantes_guante_recogido"]
 [connection signal="botas_recogidas" from="Botas" to="Player" method="_on_botas_botas_recogidas"]

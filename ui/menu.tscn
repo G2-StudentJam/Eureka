@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx7sfk6i2u456"]
+[gd_scene load_steps=9 format=3 uid="uid://bx7sfk6i2u456"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_yjatg"]
-[ext_resource type="Texture2D" uid="uid://b2uaqwnq800f4" path="res://art/Menu/Title_temp.png" id="2_qkvpb"]
+[ext_resource type="Texture2D" uid="uid://svjhxawjsgkw" path="res://Backgrounds/fondo_inicio.png" id="2_sn08y"]
+[ext_resource type="Texture2D" uid="uid://c4i84lrks6jij" path="res://art/Other/titulo.png" id="3_i4ulk"]
+[ext_resource type="Texture2D" uid="uid://c35bb1s2jd7tl" path="res://art/Other/start.png" id="3_ynqwc"]
+[ext_resource type="Texture2D" uid="uid://bijw7jkinafus" path="res://art/Other/credits.png" id="4_0m075"]
+[ext_resource type="Texture2D" uid="uid://bqfup27t6ifb6" path="res://art/Other/quit.png" id="5_aho7w"]
 
 [sub_resource type="Animation" id="Animation_7ftid"]
 resource_name = "Title_size"
@@ -30,39 +34,32 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = -2.0
+offset_left = 11.0
+offset_top = 22.0
+offset_right = 11.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yjatg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -10.0
-offset_right = 41.0
-offset_bottom = 72.0
+anchors_preset = -1
+anchor_left = 0.291
+anchor_top = 0.066
+anchor_right = 0.739
+anchor_bottom = 0.968
+offset_left = 95.768
+offset_top = 80.232
+offset_right = -156.328
+offset_bottom = -40.264
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Start Game"
-
-[node name="Credits" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Credits"
-
-[node name="Quit button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Quit"
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(61, -29)
+scale = Vector2(0.561162, 0.47612)
+texture = ExtResource("2_sn08y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Title_size"
@@ -71,10 +68,34 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
-position = Vector2(194, 52)
+position = Vector2(194, 41)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_qkvpb")
+texture = ExtResource("3_i4ulk")
 
-[connection signal="pressed" from="VBoxContainer/Start button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit button" to="." method="_on_quit_button_pressed"]
+[node name="Start button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 64.0
+offset_right = 151.0
+offset_bottom = 100.0
+icon = ExtResource("3_ynqwc")
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 106.0
+offset_right = 217.0
+offset_bottom = 145.0
+icon = ExtResource("4_0m075")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 151.0
+offset_right = 150.0
+offset_bottom = 187.0
+icon = ExtResource("5_aho7w")
+
+[connection signal="pressed" from="Start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

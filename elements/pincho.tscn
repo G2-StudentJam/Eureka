@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsk83rqptde5o"]
+[gd_scene load_steps=4 format=3 uid="uid://grjs8vcnqpb4"]
 
 [ext_resource type="Texture2D" uid="uid://b4n5twmp4m84w" path="res://art/Traps/Saw/Off.png" id="1_6bdr6"]
 [ext_resource type="Script" path="res://Scripts/Pincho.gd" id="1_8jrm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07sgf"]
-radius = 18.1108
+radius = 17.0
 
 [node name="Pincho" type="Node2D"]
 
