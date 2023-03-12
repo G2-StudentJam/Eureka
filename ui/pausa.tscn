@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bagjr0yjk2ggr"]
+
+[ext_resource type="Texture2D" uid="uid://buvn3kqgm53qt" path="res://Backgrounds/fondo_muerte.png" id="1_4rn5n"]
+[ext_resource type="Script" path="res://Scripts/pausa.gd" id="1_amjp3"]
+[ext_resource type="FontFile" uid="uid://bhx1j71ixa4n1" path="res://art/Items/Credits/lunchds.ttf" id="3_bj3fi"]
+
+[node name="Pausa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_amjp3")
+
+[node name="FondoMuerte" type="Sprite2D" parent="."]
+position = Vector2(233, 131)
+scale = Vector2(0.548904, 0.536814)
+texture = ExtResource("1_4rn5n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -88.0
+offset_right = 116.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_bj3fi")
+text = "Resume"
+
+[node name="Back to Menu" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_bj3fi")
+text = "Back to Menu"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.178
+anchor_bottom = 0.297
+offset_right = 90.944
+offset_bottom = 11.544
+scale = Vector2(3.75, 3.75)
+text = "PAUSE MENU"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back to Menu" to="." method="_on_back_to_menu_pressed"]

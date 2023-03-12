@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyhvyu2k7i4st"]
+
+[ext_resource type="Texture2D" uid="uid://buvn3kqgm53qt" path="res://Backgrounds/fondo_muerte.png" id="1_rpoeg"]
+[ext_resource type="Script" path="res://Scripts/Pantalla_muerte.gd" id="1_wi8p3"]
+[ext_resource type="Texture2D" uid="uid://by3hvh4fup4ve" path="res://art/Other/Calavera.png" id="2_1qyct"]
+[ext_resource type="FontFile" uid="uid://bhx1j71ixa4n1" path="res://art/Items/Credits/lunchds.ttf" id="4_q1yeq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wi8p3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.835
+offset_top = 1.0
+offset_bottom = -0.0800171
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(435, 126)
+texture = ExtResource("1_rpoeg")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(66, 84)
+scale = Vector2(4.28125, 4.125)
+texture = ExtResource("2_1qyct")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+anchor_left = -0.036
+anchor_right = -0.036
+offset_left = 219.472
+offset_top = 96.0
+offset_right = 279.472
+offset_bottom = 127.0
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_q1yeq")
+text = "Replay"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0, 0.00784314, 0.00784314, 1)
+layout_mode = 2
+offset_left = 122.0
+offset_top = 28.0
+offset_right = 198.0
+offset_bottom = 51.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_q1yeq")
+text = "YOU DIED"
+fit_content = true
+autowrap_mode = 0
+tab_size = 24
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

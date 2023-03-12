@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://e07qu5xw7f8m"]
+
+[ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="1_f80eg"]
+[ext_resource type="Script" path="res://Scripts/pantalla_final.gd" id="1_re7fg"]
+[ext_resource type="FontFile" uid="uid://bhx1j71ixa4n1" path="res://art/Items/Credits/lunchds.ttf" id="3_5y074"]
+
+[node name="pantalla_final" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_re7fg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(189.182, 115.5)
+scale = Vector2(0.27662, 0.27662)
+texture = ExtResource("1_f80eg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.249
+anchor_top = 0.151
+anchor_right = 0.708
+anchor_bottom = 0.66
+offset_left = 32.152
+offset_top = 86.152
+offset_right = -316.616
+offset_bottom = -110.68
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_5y074")
+text = "BACK TO MENU"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_5y074")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 21.0
+offset_right = 403.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("3_5y074")
+theme_override_font_sizes/font_size = 50
+text = "FIN"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.818
+offset_left = 310.0
+offset_top = -145.0
+offset_right = 280.0
+offset_bottom = -652.064
+scale = Vector2(4.5, 4.5)
+size_flags_vertical = 6
+text = "FIN"
+fit_content = true
+
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

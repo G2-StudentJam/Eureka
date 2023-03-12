@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://hsyefyf58xp4"]
+[gd_scene load_steps=37 format=3 uid="uid://hsyefyf58xp4"]
 
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_mxg1t"]
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
 [ext_resource type="PackedScene" path="res://characters/player.tscn" id="2_kwqsi"]
 [ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="3_acvkj"]
@@ -855,6 +856,7 @@ sources/10 = SubResource("TileSetAtlasSource_63oeo")
 
 [node name="Level1" type="Node2D"]
 position = Vector2(48, 46)
+script = ExtResource("1_mxg1t")
 
 [node name="Pincho" parent="." instance=ExtResource("6_03fsk")]
 position = Vector2(381, 184)
@@ -947,6 +949,7 @@ position = Vector2(950, -112)
 position = Vector2(1248, -297)
 
 [node name="Player" parent="." instance=ExtResource("2_kwqsi")]
+process_mode = 1
 position = Vector2(18, -14)
 scale = Vector2(0.241609, 0.241609)
 metadata/_edit_lock_ = true
@@ -1048,6 +1051,8 @@ position = Vector2(755, 344)
 
 [node name="Pincho10" parent="." instance=ExtResource("6_03fsk")]
 position = Vector2(706, 344)
+
+[node name="Paus" type="CanvasLayer" parent="."]
 
 [connection signal="guante_recogido" from="Guantes" to="Player" method="_on_guantes_guante_recogido"]
 [connection signal="botas_recogidas" from="Botas" to="Player" method="_on_botas_botas_recogidas"]

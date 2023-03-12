@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://ce0gdq6thrxv3"]
 
 [ext_resource type="Script" path="res://ui/credits.gd" id="1_xpit8"]
 [ext_resource type="Texture2D" uid="uid://cye4l8c7g6x41" path="res://art/Background/background.png" id="2_svw6d"]
 [ext_resource type="Texture2D" uid="uid://w4kbdnsoulg0" path="res://art/Items/Credits/CREDITS.png" id="3_0ax7w"]
+[ext_resource type="FontFile" uid="uid://bhx1j71ixa4n1" path="res://art/Items/Credits/lunchds.ttf" id="3_rihbq"]
 [ext_resource type="Texture2D" uid="uid://brb4gbvpk0f7f" path="res://art/Items/Credits/credits2.png" id="4_1vdk3"]
 [ext_resource type="Texture2D" uid="uid://bruhaxrsodf6j" path="res://art/Items/Credits/credits4.png" id="5_dqy1o"]
 [ext_resource type="Texture2D" uid="uid://dlq8kl76ean0x" path="res://art/Items/Credits/credits4b.png" id="6_soprl"]
@@ -32,6 +33,7 @@ offset_left = 153.0
 offset_top = 165.0
 offset_right = 214.0
 offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("3_rihbq")
 text = "Back"
 
 [node name="Credits2" type="Sprite2D" parent="."]
