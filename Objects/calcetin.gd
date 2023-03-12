@@ -1,12 +1,6 @@
-extends StaticBody2D
+extends Node2D
 
+signal calc_recogido
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	
-	constant_angular_velocity = 2000 
+func _on_area_2d_calc_recogido():
+	calc_recogido.emit()
