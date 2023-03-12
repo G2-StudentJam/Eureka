@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cq40v6rsni5w1" path="res://Objects/wrench.tscn" id="11_b6exi"]
 [ext_resource type="PackedScene" path="res://Objects/guantes.tscn" id="12_e0qc0"]
 [ext_resource type="PackedScene" path="res://Objects/botas.tscn" id="12_lq3gw"]
-[ext_resource type="PackedScene" path="res://Objects/calcetin.tscn" id="16_hy58p"]
+[ext_resource type="PackedScene" uid="uid://dauauybg0exiq" path="res://Objects/calcetin.tscn" id="16_hy58p"]
 [ext_resource type="Script" path="res://ui/UI.gd" id="18_v8qaa"]
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://art/Sprites/Botas.png" id="19_tvyc0"]
 [ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="20_11ifd"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=45 format=3 uid="uid://cqpmk0f5ho1h5"]
 
-[ext_resource type="Texture2D" uid="uid://dqqr0nvfe85xr" path="res://art/Items/tank.png" id="1_34bmx"]
 [ext_resource type="Script" path="res://elements/tank.gd" id="1_yav4a"]
 [ext_resource type="Script" path="res://elements/tank_area.gd" id="2_uh8jb"]
+[ext_resource type="Texture2D" uid="uid://3k07p2uha2i0" path="res://art/tank/t.png" id="3_4snqn"]
 [ext_resource type="Texture2D" uid="uid://wlhsdc8hok81" path="res://art/tank/tn.png" id="4_iv56p"]
 [ext_resource type="Texture2D" uid="uid://xwbtvsjyecw3" path="res://art/tank/tns.png" id="5_hbgsp"]
 [ext_resource type="Texture2D" uid="uid://6scmuhur2sv5" path="res://art/tank/tnsw.png" id="6_6e4je"]
@@ -14,20 +14,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcfde"]
 size = Vector2(205, 125.25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bmmj"]
-atlas = ExtResource("1_34bmx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj6uo"]
+atlas = ExtResource("3_4snqn")
 region = Rect2(0, 0, 200, 267)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_py0x3"]
-atlas = ExtResource("1_34bmx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_outbk"]
+atlas = ExtResource("3_4snqn")
 region = Rect2(200, 0, 200, 267)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s44ec"]
-atlas = ExtResource("1_34bmx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pnua"]
+atlas = ExtResource("3_4snqn")
 region = Rect2(400, 0, 200, 267)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ro1b"]
-atlas = ExtResource("1_34bmx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8tyo"]
+atlas = ExtResource("3_4snqn")
 region = Rect2(600, 0, 200, 267)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htb25"]
@@ -146,16 +146,16 @@ region = Rect2(600, 0, 200, 267)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6bmmj")
+"texture": SubResource("AtlasTexture_uj6uo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_py0x3")
+"texture": SubResource("AtlasTexture_outbk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s44ec")
+"texture": SubResource("AtlasTexture_4pnua")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ro1b")
+"texture": SubResource("AtlasTexture_u8tyo")
 }],
 "loop": true,
 "name": &"default",
@@ -297,7 +297,6 @@ shape = SubResource("RectangleShape2D_rcfde")
 position = Vector2(-3.8147e-06, -1)
 scale = Vector2(0.465, 0.465)
 sprite_frames = SubResource("SpriteFrames_xyjqh")
-animation = &"w"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="player_entered" from="Area2D" to="." method="_on_area_2d_player_entered"]
