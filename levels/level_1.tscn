@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dd8qe2nyavq1x"]
+[gd_scene load_steps=23 format=3 uid="uid://dd8qe2nyavq1x"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
-[ext_resource type="Texture2D" uid="uid://du3gx7v2hqlfg" path="res://Backgrounds/trees.png" id="2_2mqmy"]
 [ext_resource type="PackedScene" uid="uid://dsbyogmmvhqom" path="res://characters/player.tscn" id="2_kwqsi"]
 [ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
 [ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="3_acvkj"]
@@ -11,11 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="5_j3taf"]
 [ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://Sprites/calcetin.png" id="5_tijha"]
 [ext_resource type="PackedScene" uid="uid://bsk83rqptde5o" path="res://pincho.tscn" id="6_03fsk"]
+[ext_resource type="PackedScene" uid="uid://dyuvig63ke4ij" path="res://elements/paracaidas.tscn" id="6_fahfc"]
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="6_p0vaa"]
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://Sprites/Botas.png" id="6_ujfrp"]
 [ext_resource type="PackedScene" uid="uid://bfey4u8tuhie7" path="res://elements/climb_wall.tscn" id="7_jq5nl"]
 [ext_resource type="PackedScene" uid="uid://dg6n3htv0a8nj" path="res://Objects/guantes.tscn" id="12_e0qc0"]
 [ext_resource type="PackedScene" uid="uid://c16wxipsyukos" path="res://Objects/botas.tscn" id="12_lq3gw"]
+[ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://Sprites/paracaida.png" id="14_8jxap"]
 [ext_resource type="Texture2D" uid="uid://cy6oq8gwxmt0q" path="res://art/Items/Checkpoints/End/End (Idle).png" id="16_4eprh"]
 [ext_resource type="PackedScene" uid="uid://b30huis7wd2ie" path="res://Objects/calcetin.tscn" id="16_hy58p"]
 
@@ -456,55 +457,19 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_d473s")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yrug"]
-bg_color = Color(0.776471, 0.509804, 0.603922, 1)
+bg_color = Color(0.364706, 0.6, 0.956863, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Level1" type="Node2D"]
 position = Vector2(48, 46)
-
-[node name="Trees" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(79, -29)
-scale = Vector2(0.996094, 0.835938)
-texture = ExtResource("2_2mqmy")
-
-[node name="Trees2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(335, -31)
-scale = Vector2(0.996094, 0.835938)
-texture = ExtResource("2_2mqmy")
-
-[node name="Trees3" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(591, -33)
-scale = Vector2(0.996094, 0.835938)
-texture = ExtResource("2_2mqmy")
-
-[node name="Trees4" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(846, -36)
-scale = Vector2(0.996094, 0.835938)
-texture = ExtResource("2_2mqmy")
-
-[node name="Trees5" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1099, -36)
-scale = Vector2(0.996094, 0.835938)
-texture = ExtResource("2_2mqmy")
-
-[node name="Trees6" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1355, -38)
-scale = Vector2(0.996094, 0.835938)
-texture = ExtResource("2_2mqmy")
 
 [node name="Pincho" parent="." instance=ExtResource("6_03fsk")]
 position = Vector2(195, 12)
@@ -543,6 +508,10 @@ position = Vector2(505, 3)
 position = Vector2(157, 6)
 scale = Vector2(1.5, 1.5)
 
+[node name="Paracaidas" parent="." instance=ExtResource("6_fahfc")]
+position = Vector2(730, 0)
+scale = Vector2(0.7, 0.7)
+
 [node name="Calcetin" parent="." instance=ExtResource("16_hy58p")]
 position = Vector2(17, -170)
 
@@ -564,7 +533,7 @@ motion_scale = Vector2(0.1, 0)
 
 [node name="MountainsA" type="Sprite2D" parent="Player/Camera2D/ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
-position = Vector2(284.375, 81)
+position = Vector2(239, -150)
 scale = Vector2(0.371723, 0.331019)
 texture = ExtResource("3_acvkj")
 
@@ -572,7 +541,7 @@ texture = ExtResource("3_acvkj")
 script = ExtResource("3_dpn5c")
 
 [node name="Panel" type="Panel" parent="Player/CanvasLayer"]
-offset_right = 114.0
+offset_right = 120.0
 offset_bottom = 25.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6yrug")
 
@@ -600,6 +569,13 @@ offset_right = 808.0
 offset_bottom = 403.0
 scale = Vector2(0.048, 0.048)
 texture = ExtResource("5_tijha")
+
+[node name="Paracaidas" type="TextureRect" parent="Player/CanvasLayer"]
+offset_left = 74.0
+offset_right = 874.0
+offset_bottom = 800.0
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("14_8jxap")
 
 [node name="Background" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("3_1q33i")

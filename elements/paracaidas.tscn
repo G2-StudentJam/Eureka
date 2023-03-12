@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyuvig63ke4ij"]
+
+[ext_resource type="Script" path="res://Scripts/Paracaidas.gd" id="1_f4gju"]
+[ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://Sprites/paracaida.png" id="2_iqiak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy0xl"]
+size = Vector2(47, 32)
+
+[node name="Paracaidas" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_f4gju")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1, 18)
+scale = Vector2(0.10625, 0.10625)
+texture = ExtResource("2_iqiak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, -2)
+shape = SubResource("RectangleShape2D_fy0xl")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

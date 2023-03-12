@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_vitic"]
 [ext_resource type="Texture2D" uid="uid://bse6knwlis3dh" path="res://art/Main Characters/escalando2.png" id="2_h40jb"]
-[ext_resource type="PackedScene" uid="uid://d0kgpm4vliev6" path="res://elements/stamina.tscn" id="2_l8ecj"]
+[ext_resource type="PackedScene" path="res://elements/stamina.tscn" id="2_l8ecj"]
 [ext_resource type="Texture2D" uid="uid://worpdrgsprka" path="res://art/Main Characters/escalando.png" id="3_d1xpn"]
 [ext_resource type="Texture2D" uid="uid://bhqhqidpwlpl2" path="res://art/Main Characters/saltando2.png" id="4_uako1"]
 [ext_resource type="Texture2D" uid="uid://by1gr2tim8k70" path="res://art/Main Characters/saltando.png" id="5_51gv0"]

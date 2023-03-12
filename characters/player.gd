@@ -25,6 +25,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var top_left_wall = $TopLeftWall
 @onready var stamina_bar = $Stamina/StaminaBar
 @onready var stamina_show_timer = $StaminaShowTimer
+@onready var calcetin = $CanvasLayer/Calcetin
+@onready var bota = $CanvasLayer/Botas
+@onready var guante = $CanvasLayer/Guantes
 
 
 var rng = RandomNumberGenerator.new()
@@ -108,7 +111,7 @@ func _physics_process(delta):
 				current_animation = "run"
 
 	# Handle Jump
-	if $CanvasLayer/Botas.visible and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
+	if bota.visible and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
 		jump()
 		
 
@@ -118,7 +121,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 
 
-	if ($CanvasLayer/Calcetin.visible):
+	if (calcetin.visible):
 		if (SPEED < 200):
 			SPEED = 200
 	else:
@@ -143,7 +146,7 @@ func _physics_process(delta):
 
 func wall_climb(delta):
 	var vertical_direction = Input.get_axis("ui_down", "ui_up")
-	if (Input.is_action_pressed("climb") and nextToWall() and stamina > 0 and $CanvasLayer/Guantes.visible):
+	if (Input.is_action_pressed("climb") and nextToWall() and stamina > 0 and guante.visible):
 		if current_animation != "climb":
 			#starts climbing
 			print("empieza a escalar")
