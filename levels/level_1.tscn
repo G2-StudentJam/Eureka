@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
 [ext_resource type="PackedScene" path="res://characters/player.tscn" id="2_kwqsi"]
-[ext_resource type="AudioStream" uid="uid://bxg4e3ya88i80" path="res://audio/background_1.mp3" id="3_1q33i"]
 [ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="3_acvkj"]
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="4_n1mbn"]
 [ext_resource type="Texture2D" uid="uid://cggbwg3i1xe5g" path="res://art/Terrain/terreno_arreglado.png" id="5_74b7f"]
@@ -27,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="20_11ifd"]
 [ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://art/Sprites/calcetin.png" id="21_1tujr"]
 [ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://art/Sprites/paracaida.png" id="22_xmcpr"]
+[ext_resource type="AudioStream" uid="uid://dw4t2w85q5ojr" path="res://audio/background_music.wav" id="24_eft81"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d473s"]
 texture = ExtResource("1_s1y5s")
@@ -967,7 +967,7 @@ texture = ExtResource("22_xmcpr")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("3_1q33i")
+stream = ExtResource("24_eft81")
 volume_db = -20.0
 autoplay = true
 
