@@ -193,21 +193,21 @@ func wall_climb(delta):
 
 func add_item(item):
 	if item == "wrench":
-		$Wrench.visible = true
+		wrench.visible = true
 	if item == "screw":
-		$Tornillo.visible = true
+		tornillo.visible = true
 	if item == "nut":
-		$Tuerca.visible = true
+		tuerca.visible = true
 	item_inventory[item] = true
 	
 
 func remove_item(item):
 	if item == "wrench":
-		$Wrench.visible = false
+		wrench.visible = false
 	if item == "screw":
-		$Tornillo.visible = false
+		tornillo.visible = false
 	if item == "nut":
-		$Tuerca.visible = false
+		tuerca.visible = false
 	item_inventory[item] = false
 
 func _on_tank_player_entered():
