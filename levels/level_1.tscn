@@ -896,15 +896,6 @@ scale = Vector2(0.7, 0.7)
 [node name="Calcetin" parent="." instance=ExtResource("16_hy58p")]
 position = Vector2(17, -154)
 
-[node name="Tuerca" parent="." instance=ExtResource("9_1g2xb")]
-position = Vector2(702, -64)
-
-[node name="Tornillo" parent="." instance=ExtResource("10_pn6yr")]
-position = Vector2(959, -112)
-
-[node name="Wrench" parent="." instance=ExtResource("11_b6exi")]
-position = Vector2(137, -63)
-
 [node name="Tank" parent="." instance=ExtResource("8_np28n")]
 position = Vector2(495, -50)
 
@@ -1003,7 +994,8 @@ volume_db = -5.0
 [connection signal="botas_recogidas" from="Botas" to="Player" method="_on_botas_botas_recogidas"]
 [connection signal="paracaidas_recogido" from="Paracaidas" to="Player" method="_on_paracaidas_paracaidas_recogido"]
 [connection signal="calc_recogido" from="Calcetin" to="Player" method="_on_calcetin_calc_recogido"]
+[connection signal="player_entered" from="Tank" to="Player" method="_on_tank_player_entered"]
 [connection signal="tuerca_recogida" from="Tuerca" to="Player" method="_on_tuerca_recogida"]
 [connection signal="tornillo_recogido" from="Tornillo" to="Player" method="_on_tornillo_recogido"]
 [connection signal="wrench_recogida" from="Wrench" to="Player" method="_on_wrench_recogida"]
-[connection signal="player_entered" from="Tank" to="Player" method="_on_tank_player_entered"]
+[connection signal="item_dropped" from="Player" to="Tank" method="_on_player_item_dropped"]
