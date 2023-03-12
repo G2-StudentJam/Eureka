@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvl0iwqb78rtp"
-path="res://.godot/imported/escaleras_2.png-7fa19c1fd05a34d05f3153735485039c.ctex"
+uid="uid://bdk433e0w1tkp"
+path="res://.godot/imported/escaleras_arreglado.png-f3b32bdd7e5d23672d04119e1d8a17bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Terrain/escaleras_2.png"
-dest_files=["res://.godot/imported/escaleras_2.png-7fa19c1fd05a34d05f3153735485039c.ctex"]
+source_file="res://art/Terrain/escaleras_arreglado.png"
+dest_files=["res://.godot/imported/escaleras_arreglado.png-f3b32bdd7e5d23672d04119e1d8a17bd.ctex"]
 
 [params]
 
