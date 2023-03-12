@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyuvig63ke4ij"]
+[gd_scene load_steps=5 format=3 uid="uid://dyuvig63ke4ij"]
 
+[ext_resource type="Script" path="res://Objects/paracaidas.gd" id="1_0g61m"]
 [ext_resource type="Script" path="res://Scripts/Paracaidas.gd" id="1_f4gju"]
 [ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://Sprites/paracaida.png" id="2_iqiak"]
 
@@ -7,6 +8,7 @@
 size = Vector2(47, 32)
 
 [node name="Paracaidas" type="Node2D"]
+script = ExtResource("1_0g61m")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("1_f4gju")
@@ -21,3 +23,4 @@ position = Vector2(-2.5, -2)
 shape = SubResource("RectangleShape2D_fy0xl")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="paracas_recogido" from="Area2D" to="." method="_on_area_2d_paracas_recogido"]

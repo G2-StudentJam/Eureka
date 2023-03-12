@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://Sprites/Botas.png" id="6_ujfrp"]
 [ext_resource type="PackedScene" uid="uid://bfey4u8tuhie7" path="res://elements/climb_wall.tscn" id="7_jq5nl"]
 [ext_resource type="PackedScene" uid="uid://dg6n3htv0a8nj" path="res://Objects/guantes.tscn" id="12_e0qc0"]
-[ext_resource type="PackedScene" uid="uid://c16wxipsyukos" path="res://Objects/botas.tscn" id="12_lq3gw"]
+[ext_resource type="PackedScene" uid="uid://cguag0ndythv7" path="res://Objects/botas.tscn" id="12_lq3gw"]
 [ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://Sprites/paracaida.png" id="14_8jxap"]
 [ext_resource type="Texture2D" uid="uid://cy6oq8gwxmt0q" path="res://art/Items/Checkpoints/End/End (Idle).png" id="16_4eprh"]
 [ext_resource type="PackedScene" uid="uid://b30huis7wd2ie" path="res://Objects/calcetin.tscn" id="16_hy58p"]
@@ -513,7 +513,7 @@ position = Vector2(730, 0)
 scale = Vector2(0.7, 0.7)
 
 [node name="Calcetin" parent="." instance=ExtResource("16_hy58p")]
-position = Vector2(17, -170)
+position = Vector2(17, -154)
 
 [node name="Player" parent="." instance=ExtResource("2_kwqsi")]
 position = Vector2(18, -14)
@@ -533,7 +533,7 @@ motion_scale = Vector2(0.1, 0)
 
 [node name="MountainsA" type="Sprite2D" parent="Player/Camera2D/ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
-position = Vector2(239, -150)
+position = Vector2(284, 40)
 scale = Vector2(0.371723, 0.331019)
 texture = ExtResource("3_acvkj")
 
@@ -597,3 +597,8 @@ volume_db = -5.0
 [node name="End(idle)" type="Sprite2D" parent="."]
 position = Vector2(1214, -21)
 texture = ExtResource("16_4eprh")
+
+[connection signal="guante_recogido" from="Guantes" to="Player" method="_on_guantes_guante_recogido"]
+[connection signal="botas_recogidas" from="Botas" to="Player" method="_on_botas_botas_recogidas"]
+[connection signal="paracaidas_recogido" from="Paracaidas" to="Player" method="_on_paracaidas_paracaidas_recogido"]
+[connection signal="calc_recogido" from="Calcetin" to="Player" method="_on_calcetin_calc_recogido"]
