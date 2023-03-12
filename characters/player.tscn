@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dsbyogmmvhqom"]
+[gd_scene load_steps=35 format=3 uid="uid://dsbyogmmvhqom"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_vitic"]
 [ext_resource type="Texture2D" uid="uid://bse6knwlis3dh" path="res://art/Main Characters/escalando2.png" id="2_h40jb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bhqhqidpwlpl2" path="res://art/Main Characters/saltando2.png" id="4_uako1"]
 [ext_resource type="Texture2D" uid="uid://by1gr2tim8k70" path="res://art/Main Characters/saltando.png" id="5_51gv0"]
 [ext_resource type="Texture2D" uid="uid://cgey8wu5a0ff5" path="res://art/Main Characters/respirando.png" id="6_hlqbw"]
+[ext_resource type="Texture2D" uid="uid://d231aivqr1xek" path="res://art/Main Characters/gliding.png" id="6_x4210"]
 [ext_resource type="Texture2D" uid="uid://db5m2xdv6lxp3" path="res://art/Main Characters/andando2.png" id="7_uinw3"]
 [ext_resource type="Texture2D" uid="uid://baomiket5agy4" path="res://art/Main Characters/andando.png" id="8_retfk"]
 
@@ -33,6 +34,14 @@ region = Rect2(200, 0, 200, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wq5mk"]
 atlas = ExtResource("5_51gv0")
 region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfyvt"]
+atlas = ExtResource("6_x4210")
+region = Rect2(202, 0, 202, 605)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj6jm"]
+atlas = ExtResource("6_x4210")
+region = Rect2(0, 0, 202, 605)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2ecm"]
 atlas = ExtResource("6_hlqbw")
@@ -132,6 +141,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qfyvt")
+}],
+"loop": true,
+"name": &"gliding_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj6jm")
+}],
+"loop": true,
+"name": &"gliding_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_l2ecm")
 }, {
 "duration": 1.0,
@@ -211,7 +236,7 @@ script = ExtResource("1_vitic")
 position = Vector2(-2, 2)
 scale = Vector2(0.370625, 0.370625)
 sprite_frames = SubResource("SpriteFrames_iggs0")
-animation = &"idle"
+animation = &"gliding_right"
 
 [node name="RightWall" type="RayCast2D" parent="."]
 position = Vector2(0, 22)

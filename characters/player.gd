@@ -85,7 +85,10 @@ func _physics_process(delta):
 		if (velocity.y <= 0):
 			current_animation = "jump"
 		else:
-			current_animation = "fall"
+			if is_paragliding:
+				current_animation = "gliding"
+			else:
+				current_animation = "fall"
 			
 		if (coyotetimer.is_stopped() and can_jump and first_cycle):
 			coyotetimer.start()
