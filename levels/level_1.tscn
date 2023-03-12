@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" path="res://Objects/botas.tscn" id="12_lq3gw"]
 [ext_resource type="PackedScene" uid="uid://dauauybg0exiq" path="res://Objects/calcetin.tscn" id="16_hy58p"]
 [ext_resource type="Script" path="res://ui/UI.gd" id="18_v8qaa"]
+[ext_resource type="Texture2D" uid="uid://byc817feyk8xd" path="res://art/Menu/inventory.png" id="19_d3r36"]
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://art/Sprites/Botas.png" id="19_tvyc0"]
 [ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="20_11ifd"]
 [ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://art/Sprites/calcetin.png" id="21_1tujr"]
@@ -851,18 +852,6 @@ sources/8 = SubResource("TileSetAtlasSource_7ut6p")
 sources/9 = SubResource("TileSetAtlasSource_v6sqy")
 sources/10 = SubResource("TileSetAtlasSource_63oeo")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yrug"]
-bg_color = Color(0.364706, 0.6, 0.956863, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
 [node name="Level1" type="Node2D"]
 position = Vector2(48, 46)
 
@@ -936,10 +925,10 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 script = ExtResource("18_v8qaa")
 
-[node name="Panel" type="Panel" parent="Player/CanvasLayer"]
-offset_right = 120.0
-offset_bottom = 25.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6yrug")
+[node name="Inventario" type="Sprite2D" parent="Player/CanvasLayer"]
+position = Vector2(60, 13)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("19_d3r36")
 
 [node name="Botas" type="TextureRect" parent="Player/CanvasLayer"]
 offset_left = 20.0
@@ -948,6 +937,7 @@ offset_right = 5306.0
 offset_bottom = 1766.0
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("19_tvyc0")
+metadata/_edit_lock_ = true
 
 [node name="Guantes" type="TextureRect" parent="Player/CanvasLayer"]
 offset_left = 45.0
@@ -956,6 +946,7 @@ offset_right = 5331.0
 offset_bottom = 1803.0
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("20_11ifd")
+metadata/_edit_lock_ = true
 
 [node name="Calcetin" type="TextureRect" parent="Player/CanvasLayer"]
 texture_filter = 1
@@ -965,6 +956,7 @@ offset_right = 808.0
 offset_bottom = 403.0
 scale = Vector2(0.048, 0.048)
 texture = ExtResource("21_1tujr")
+metadata/_edit_lock_ = true
 
 [node name="Paracaidas" type="TextureRect" parent="Player/CanvasLayer"]
 offset_left = 74.0
@@ -972,6 +964,7 @@ offset_right = 874.0
 offset_bottom = 800.0
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("22_xmcpr")
+metadata/_edit_lock_ = true
 
 [node name="Background" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("3_1q33i")
