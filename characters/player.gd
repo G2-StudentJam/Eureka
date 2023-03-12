@@ -14,9 +14,9 @@ var animation_direction = "right"
 var stamina = MAX_STAMINA
 
 var item_inventory = {
+	"nut" : false,
 	"wrench": false,
-	"screw": true,
-	"nut": false
+	"screw": false
 }
 
 signal stamina_changed(new_value)
@@ -32,6 +32,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var top_left_wall = $TopLeftWall
 @onready var stamina_bar = $Stamina/StaminaBar
 @onready var stamina_show_timer = $StaminaShowTimer
+@onready var wrench = $Wrench
+@onready var tuerca = $Tuerca
+@onready var tornillo = $Tornillo
 @onready var tank = get_parent().get_node("Tank")
 
 
@@ -165,9 +168,39 @@ func wall_climb(delta):
 		if aboutToFinishClimb():
 			jump(0.6,false)
 
+func add_item(item):
+	if item == "wrench":
+		$Wrench.visible = true
+	if item == "screw":
+		$Tornillo.visible = true
+	if item == "nut":
+		$Tuerca.visible = true
+	item_inventory[item] = true
+	
+
+func remove_item(item):
+	if item == "wrench":
+		$Wrench.visible = false
+	if item == "screw":
+		$Tornillo.visible = false
+	if item == "nut":
+		$Tuerca.visible = false
+	item_inventory[item] = false
 
 func _on_tank_player_entered():
 	for item in item_inventory:
 		if item_inventory[item]:
 			item_dropped.emit(item)
-			item_inventory[item] = false
+			remove_item(item)
+
+
+func _on_tuerca_recogida():
+	add_item("nut")
+
+
+func _on_tornillo_recogido():
+	add_item("screw")
+
+
+func _on_wrench_recogida():
+	add_item("wrench")
