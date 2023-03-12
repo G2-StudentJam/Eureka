@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b30huis7wd2ie"]
+[gd_scene load_steps=5 format=3 uid="uid://dauauybg0exiq"]
 
-[ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://Sprites/calcetin.png" id="1_ggcb6"]
-[ext_resource type="Script" path="res://Objects/Calcetin.gd" id="1_mxkmy"]
+[ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://art/Sprites/calcetin.png" id="1_ggcb6"]
+[ext_resource type="Script" path="res://Objects/calcetin.gd" id="1_i5swp"]
 
 [sub_resource type="GDScript" id="GDScript_c7oyk"]
 script/source = "extends Area2D
@@ -28,7 +28,7 @@ radius = 11.0
 height = 24.0
 
 [node name="Calcetin" type="Node2D"]
-script = ExtResource("1_mxkmy")
+script = ExtResource("1_i5swp")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = SubResource("GDScript_c7oyk")

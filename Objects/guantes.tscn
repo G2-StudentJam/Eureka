@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg6n3htv0a8nj"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://Objects/guantes.gd" id="1_76nqc"]
 [ext_resource type="Script" path="res://Scripts/Guantes.gd" id="1_pgkbv"]
-[ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://Sprites/Guantes.png" id="2_n2luh"]
+[ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="2_n2luh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_noc4s"]
 radius = 9.0
