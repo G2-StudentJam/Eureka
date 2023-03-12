@@ -36,6 +36,28 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var tuerca = $Tuerca
 @onready var tornillo = $Tornillo
 @onready var tank = get_parent().get_node("Tank")
+@onready var calcetin = $CanvasLayer/Calcetin
+@onready var bota = $CanvasLayer/Botas
+@onready var guante = $CanvasLayer/Guantes
+
+var habilidades = {
+	tiene_calcetines = false,
+	tiene_botas = false,
+	tiene_guantes = false,
+	tiene_paraca = false
+}
+
+func activar(habilidad):
+	if (habilidad == 0):
+		habilidades.tiene_calcetines = true
+	elif(habilidad == 1):
+		habilidades.tiene_botas = true
+	elif(habilidad == 2):
+		habilidades.tiene_guantes = true
+	elif(habilidad == 3):
+		habilidades.tiene_paraca = true
+
+
 
 
 var rng = RandomNumberGenerator.new()
@@ -83,7 +105,7 @@ func set_stamina(new_value):
 
 func _physics_process(delta): 	
 	if not is_on_floor():
-		if (Input.is_action_pressed("paraglider")):
+		if (Input.is_action_pressed("paraglider") and habilidades.tiene_paraca == true):
 			if (can_paraglide):
 				velocity.y = 0
 				can_paraglide = false
@@ -119,7 +141,7 @@ func _physics_process(delta):
 				current_animation = "run"
 
 	# Handle Jump
-	if $CanvasLayer/Botas.visible and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
+	if habilidades.tiene_botas == true and Input.is_action_just_pressed("ui_accept") and (is_on_floor() or (!coyotetimer.is_stopped() and can_jump)):
 		jump()
 		
 
@@ -129,11 +151,11 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 
 
-	if ($CanvasLayer/Calcetin.visible):
+	if (habilidades.tiene_calcetines == true):
 		if (SPEED < 200):
 			SPEED = 200
 	else:
-		SPEED = 0.2		
+		SPEED = 10		
 	if direction:
 		velocity.x = direction / abs(direction) * SPEED #dividido por el valor absoluto para quedarnos solo con el signo y que la velocidad no dependa del joystick/flecha
 
@@ -152,9 +174,10 @@ func _physics_process(delta):
 	wall_climb(delta)
 	animate(current_animation)
 
+
 func wall_climb(delta):
 	var vertical_direction = Input.get_axis("ui_down", "ui_up")
-	if (Input.is_action_pressed("climb") and nextToWall() and stamina > 0 and $CanvasLayer/Guantes.visible):
+	if (Input.is_action_pressed("climb") and nextToWall() and stamina > 0 and habilidades.tiene_guantes == true):
 		if current_animation != "climb":
 			#starts climbing
 			current_animation = "climb"
@@ -193,7 +216,6 @@ func _on_tank_player_entered():
 			item_dropped.emit(item)
 			remove_item(item)
 
-
 func _on_tuerca_recogida():
 	add_item("nut")
 
@@ -204,3 +226,16 @@ func _on_tornillo_recogido():
 
 func _on_wrench_recogida():
 	add_item("wrench")
+
+func _on_calcetin_calc_recogido():
+	activar(0)
+	
+
+func _on_botas_botas_recogidas():
+	activar(1)
+
+func _on_guantes_guante_recogido():
+	activar(2)
+
+func _on_paracaidas_paracaidas_recogido():
+	activar(3)

@@ -3,6 +3,7 @@ extends CanvasLayer
 var apple = true
 var guantes = true
 var calcetin = true
+var paracaidas = true
 
 func _ready():
 	apple = false
@@ -20,11 +21,18 @@ func _ready():
 	CalcetinNode.calc_recogidos.connect(pupa)
 	$Calcetin.visible = calcetin
 
+	paracaidas = false
+	var ParacaidasNode = get_parent().get_parent().get_node("Paracaidas").get_node("Area2D")
+	ParacaidasNode.paracas_recogido.connect(pepa)
+	$Paracaidas.visible = paracaidas
+	if (paracaidas == false):
+		print("Hola")
+
 func pipo():
-	print("Ya puedes saltar")
+	print("Saltar habilitado")
 	apple = true
 	$Botas.visible = apple
-
+	
 func papi():
 	print("Escalar habilitado")
 	guantes = true
@@ -34,4 +42,9 @@ func pupa():
 	print("Andar habilitado")
 	calcetin = true
 	$Calcetin.visible = calcetin
+	
+func pepa():
+	print("Planear habilitado")
+	paracaidas = true
+	$Paracaidas.visible = paracaidas
 	
