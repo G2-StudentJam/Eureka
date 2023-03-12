@@ -7,6 +7,7 @@ var wrench = false
 var screw = false
 
 @onready var sprite = $Area2D/AnimatedSprite2D
+@onready var timer = $Area2D/Timer
 
 func _on_player_item_dropped(item):
 	print("Recibido objeto: " + item)
@@ -31,7 +32,13 @@ func _on_player_item_dropped(item):
 		sprite.play("ws")
 	if nut and wrench and screw:
 		sprite.play("nsw")
+		timer.start()
+
 	
 
 func _on_area_2d_player_entered():
 	player_entered.emit()
+
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://ui/pantalla_final.tscn")
