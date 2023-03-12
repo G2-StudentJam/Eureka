@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dd8qe2nyavq1x"]
+[gd_scene load_steps=23 format=3 uid="uid://dd8qe2nyavq1x"]
 
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
 [ext_resource type="Texture2D" uid="uid://du3gx7v2hqlfg" path="res://Backgrounds/trees.png" id="2_2mqmy"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="6_p0vaa"]
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://Sprites/Botas.png" id="6_ujfrp"]
 [ext_resource type="PackedScene" uid="uid://bfey4u8tuhie7" path="res://elements/climb_wall.tscn" id="7_jq5nl"]
+[ext_resource type="PackedScene" uid="uid://cqpmk0f5ho1h5" path="res://elements/tank.tscn" id="8_np28n"]
 [ext_resource type="PackedScene" uid="uid://dg6n3htv0a8nj" path="res://Objects/guantes.tscn" id="12_e0qc0"]
 [ext_resource type="PackedScene" uid="uid://c16wxipsyukos" path="res://Objects/botas.tscn" id="12_lq3gw"]
 [ext_resource type="Texture2D" uid="uid://cy6oq8gwxmt0q" path="res://art/Items/Checkpoints/End/End (Idle).png" id="16_4eprh"]
@@ -546,6 +547,9 @@ scale = Vector2(1.5, 1.5)
 [node name="Calcetin" parent="." instance=ExtResource("16_hy58p")]
 position = Vector2(17, -170)
 
+[node name="Tank" parent="." instance=ExtResource("8_np28n")]
+position = Vector2(1357, -51)
+
 [node name="Player" parent="." instance=ExtResource("2_kwqsi")]
 position = Vector2(18, -14)
 scale = Vector2(0.241609, 0.241609)
@@ -621,3 +625,6 @@ volume_db = -5.0
 [node name="End(idle)" type="Sprite2D" parent="."]
 position = Vector2(1214, -21)
 texture = ExtResource("16_4eprh")
+
+[connection signal="player_entered" from="Tank" to="Player" method="_on_tank_player_entered"]
+[connection signal="item_dropped" from="Player" to="Tank" method="_on_player_item_dropped"]
