@@ -13,11 +13,6 @@ var current_animation = "idle"
 var animation_direction = "right"
 var stamina = MAX_STAMINA
 
-var item_inventory = {
-	"nut" : false,
-	"wrench": false,
-	"screw": false
-}
 
 signal stamina_changed(new_value)
 signal item_dropped(item)
@@ -47,6 +42,13 @@ var habilidades = {
 	tiene_paraca = false
 }
 
+var item_inventory = {
+	"nut" : false,
+	"wrench": false,
+	"screw": false
+}
+
+
 func activar(habilidad):
 	if (habilidad == 0):
 		habilidades.tiene_calcetines = true
@@ -58,6 +60,15 @@ func activar(habilidad):
 		habilidades.tiene_paraca = true
 
 
+# si tuvieramos un sistema de inventario mas sencillo con un unico objeto o dos que almacenaran los datos en lugar
+# de multiples variables seria mucho mas sencillo porque bastaria con copiar los objetos, pero no es el caso :)
+var checkpoint_save = {
+	habilidades = habilidades,
+	inventory = item_inventory,
+	position = {}
+}
+
+var has_checkpoint = false
 
 
 var rng = RandomNumberGenerator.new()
@@ -168,8 +179,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	# comprobar que no caiga al vacio
 	if position.y > 600:
-		get_tree().reload_current_scene()
-		get_tree().change_scene_to_file("res://ui/Pantalla_muerte.tscn")
+		onDeath()
 	move_and_slide()
 	
 	wall_climb(delta)
@@ -240,3 +250,21 @@ func _on_guantes_guante_recogido():
 
 func _on_paracaidas_paracaidas_recogido():
 	activar(3)
+
+
+func onCheckpoint():
+	has_checkpoint = true
+	checkpoint_save.position.x = position.x
+	checkpoint_save.position.y = position.y
+	checkpoint_save.inventory = item_inventory
+	checkpoint_save.habilidades = habilidades
+
+func onDeath():
+	if has_checkpoint:
+		position.x = checkpoint_save.position.x
+		position.y = checkpoint_save.position.y
+		item_inventory = checkpoint_save.inventory
+		habilidades = checkpoint_save.habilidades
+	else:
+		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://ui/Pantalla_muerte.tscn")

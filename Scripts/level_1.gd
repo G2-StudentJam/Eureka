@@ -6,3 +6,7 @@ func _input(event: InputEvent) -> void:
 		$Paus.add_child(paused)
 		get_tree().paused = true
 	
+
+
+func _on_bg_music_finished():
+	$Player/Background.play()

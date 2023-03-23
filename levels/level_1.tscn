@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://hsyefyf58xp4"]
+[gd_scene load_steps=40 format=3 uid="uid://hsyefyf58xp4"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_mxg1t"]
 [ext_resource type="Texture2D" uid="uid://bai4j205bnlo3" path="res://art/Terrain/Terrain (16x16).png" id="1_s1y5s"]
@@ -22,15 +22,16 @@
 [ext_resource type="Texture2D" uid="uid://dc5jtt6kl2jhk" path="res://art/Terrain/escaleras_dobles_arregladas.png" id="7_ncd20"]
 [ext_resource type="Texture2D" uid="uid://dpvj1g26en24" path="res://art/Terrain/plataformas_arreglado.png" id="8_7cbkl"]
 [ext_resource type="PackedScene" uid="uid://cqpmk0f5ho1h5" path="res://elements/tank.tscn" id="8_np28n"]
-[ext_resource type="PackedScene" path="res://Objects/tuerca.tscn" id="9_1g2xb"]
-[ext_resource type="PackedScene" path="res://Objects/tornillo.tscn" id="10_pn6yr"]
-[ext_resource type="PackedScene" path="res://Objects/wrench.tscn" id="11_b6exi"]
+[ext_resource type="PackedScene" uid="uid://dhtpdlgtoalxb" path="res://Objects/tuerca.tscn" id="9_1g2xb"]
+[ext_resource type="PackedScene" uid="uid://q1efjrhmy1jb" path="res://Objects/tornillo.tscn" id="10_pn6yr"]
+[ext_resource type="PackedScene" uid="uid://cq40v6rsni5w1" path="res://Objects/wrench.tscn" id="11_b6exi"]
 [ext_resource type="PackedScene" path="res://Objects/guantes.tscn" id="12_e0qc0"]
 [ext_resource type="PackedScene" path="res://Objects/botas.tscn" id="12_lq3gw"]
 [ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://art/Sprites/paracaida.png" id="14_8jxap"]
-[ext_resource type="PackedScene" path="res://Objects/calcetin.tscn" id="16_hy58p"]
+[ext_resource type="PackedScene" uid="uid://dauauybg0exiq" path="res://Objects/calcetin.tscn" id="16_hy58p"]
 [ext_resource type="Texture2D" uid="uid://byc817feyk8xd" path="res://art/Menu/inventory.png" id="19_d3r36"]
 [ext_resource type="AudioStream" uid="uid://dw4t2w85q5ojr" path="res://audio/background_music.wav" id="24_fhoie"]
+[ext_resource type="PackedScene" uid="uid://d00gfsa5s7oal" path="res://elements/checkpoint_node.tscn" id="32_dtuiv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d473s"]
 texture = ExtResource("1_s1y5s")
@@ -893,26 +894,6 @@ position = Vector2(632, 42)
 scale = Vector2(0.06875, 0.06875)
 texture = ExtResource("3_fh7vb")
 
-[node name="Pincho" parent="." instance=ExtResource("6_03fsk")]
-position = Vector2(381, 184)
-
-[node name="Pincho2" parent="." instance=ExtResource("6_03fsk")]
-position = Vector2(773, 25)
-
-[node name="Pincho3" parent="." instance=ExtResource("6_03fsk")]
-position = Vector2(880, 26)
-
-[node name="Pincho4" parent="." instance=ExtResource("6_03fsk")]
-position = Vector2(808, 25)
-
-[node name="Pincho5" parent="." instance=ExtResource("6_03fsk")]
-position = Vector2(1217, 127)
-rotation = 1.5708
-
-[node name="Pincho12" parent="." instance=ExtResource("6_03fsk")]
-position = Vector2(1216, 126)
-rotation = -1.5708
-
 [node name="ClimbWall" parent="." instance=ExtResource("7_jq5nl")]
 position = Vector2(660, -45)
 scale = Vector2(0.3, 0.3)
@@ -1068,6 +1049,26 @@ volume_db = -5.0
 stream = ExtResource("6_p0vaa")
 volume_db = -5.0
 
+[node name="Pincho" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(381, 184)
+
+[node name="Pincho2" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(773, 25)
+
+[node name="Pincho3" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(880, 26)
+
+[node name="Pincho4" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(808, 25)
+
+[node name="Pincho5" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(1217, 127)
+rotation = 1.5708
+
+[node name="Pincho12" parent="." instance=ExtResource("6_03fsk")]
+position = Vector2(1216, 126)
+rotation = -1.5708
+
 [node name="Pincho6" parent="." instance=ExtResource("6_03fsk")]
 position = Vector2(790, 155)
 
@@ -1088,6 +1089,22 @@ position = Vector2(755, 344)
 [node name="Pincho10" parent="." instance=ExtResource("6_03fsk")]
 position = Vector2(706, 344)
 
+[node name="Checkpoint1" parent="." instance=ExtResource("32_dtuiv")]
+position = Vector2(263, 144)
+scale = Vector2(0.8, 0.8)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("32_dtuiv")]
+position = Vector2(1121, 14)
+scale = Vector2(1, 0.818)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("32_dtuiv")]
+position = Vector2(852, 225)
+scale = Vector2(0.2, 0.243)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("32_dtuiv")]
+position = Vector2(684, -65)
+scale = Vector2(0.1, 0.1)
+
 [node name="Paus" type="CanvasLayer" parent="."]
 
 [connection signal="guante_recogido" from="Guantes" to="Player" method="_on_guantes_guante_recogido"]
@@ -1099,3 +1116,20 @@ position = Vector2(706, 344)
 [connection signal="tornillo_recogido" from="Tornillo" to="Player" method="_on_tornillo_recogido"]
 [connection signal="wrench_recogida" from="Wrench" to="Player" method="_on_wrench_recogida"]
 [connection signal="item_dropped" from="Player" to="Tank" method="_on_player_item_dropped"]
+[connection signal="finished" from="Player/Background" to="." method="_on_bg_music_finished"]
+[connection signal="player_hit_spikes" from="Pincho" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho2" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho3" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho4" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho5" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho12" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho6" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho11" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho7" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho8" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho9" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho10" to="Player" method="onDeath"]
+[connection signal="playerEnteredCheckpoint" from="Checkpoint1" to="Player" method="onCheckpoint"]
+[connection signal="playerEnteredCheckpoint" from="Checkpoint2" to="Player" method="onCheckpoint"]
+[connection signal="playerEnteredCheckpoint" from="Checkpoint3" to="Player" method="onCheckpoint"]
+[connection signal="playerEnteredCheckpoint" from="Checkpoint4" to="Player" method="onCheckpoint"]
