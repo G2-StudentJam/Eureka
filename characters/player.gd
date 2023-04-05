@@ -88,7 +88,8 @@ func nextToWall():
 	return is_raycast_colliding(right_wall, CLIMB_WALL) or is_raycast_colliding(left_wall, CLIMB_WALL)
 
 func is_raycast_colliding(raycaster, object_name):
-	return raycaster.is_colliding() and raycaster.get_collider().get("name") == object_name
+	
+	return raycaster.is_colliding()
 
 func aboutToFinishClimb():
 	var right_side = is_raycast_colliding(right_wall, CLIMB_WALL) and not is_raycast_colliding(top_right_wall, CLIMB_WALL)
