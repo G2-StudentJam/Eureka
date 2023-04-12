@@ -1,36 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://m7swfte4da6b"]
+[gd_scene load_steps=3 format=3 uid="uid://m7swfte4da6b"]
 
-[ext_resource type="PackedScene" uid="uid://grjs8vcnqpb4" path="res://elements/pincho.tscn" id="1_ekclu"]
+[ext_resource type="Script" path="res://elements/pinchos_moviles.gd" id="1_44krd"]
+[ext_resource type="Texture2D" uid="uid://cjn57ytrm5opu" path="res://art/Other/spike.png" id="1_a7wrh"]
 
-[sub_resource type="Animation" id="Animation_vxnmn"]
-resource_name = "new_animation"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Pincho:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 10),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 200), Vector2(0, 0)]
-}
+[node name="Pincho_movil" type="Node2D"]
+script = ExtResource("1_44krd")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wt1gc"]
-_data = {
-"new_animation": SubResource("Animation_vxnmn")
-}
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
-[node name="Pinchos moviles" type="Node2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
+position = Vector2(5.09844, -0.690625)
+scale = Vector2(1.20313, 1.20313)
+build_mode = 1
+polygon = PackedVector2Array(-13, -7, -17, 1, 10, 1, 6, -7, 5, -7, 1, 0, 0, 0, -3, -7, -4, -7, -8, 0, -9, 0, -12, -7)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "new_animation"
-libraries = {
-"": SubResource("AnimationLibrary_wt1gc")
-}
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(-9, -6)
+rotation = -0.00523599
+scale = Vector2(0.0372434, 0.0335589)
+texture = ExtResource("1_a7wrh")
 
-[node name="Pincho" parent="AnimationPlayer" instance=ExtResource("1_ekclu")]
-position = Vector2(483, -19)
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(2, -6)
+rotation = -0.00523599
+scale = Vector2(0.0372434, 0.0335589)
+texture = ExtResource("1_a7wrh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(13, -6)
+rotation = -0.00523599
+scale = Vector2(0.0372434, 0.0335589)
+texture = ExtResource("1_a7wrh")
+
+[connection signal="player_hit_spikes" from="." to="." method="_on_player_hit_spikes"]

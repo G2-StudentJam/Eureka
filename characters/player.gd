@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 20
+var RUNNING_SPEED = 150
 const JUMP_VELOCITY = -300.0
 const CLIMB_VELOCITY = -100.0
 const CLIMB_WALL = "WallClimb"
@@ -164,8 +165,8 @@ func _physics_process(delta):
 
 
 	if (habilidades.tiene_calcetines == true):
-		if (SPEED < 200):
-			SPEED = 200
+		if (SPEED < RUNNING_SPEED):
+			SPEED = RUNNING_SPEED
 	else:
 		SPEED = 10		
 	if direction:

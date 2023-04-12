@@ -17,7 +17,7 @@ func _on_body_entered(body):
 	if (body.get_name() == (\"Player\")):
 		calc_recogidos.emit()
 		queue_free()
-	elif(body.get_name() == (\"TileMap\")):
+	elif(body.get_name() == (\"Escenario\")):
 		speed = 0
 	
 	pass # Replace with function body.

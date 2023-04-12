@@ -1,36 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsk83rqptde5o"]
+[gd_scene load_steps=3 format=3 uid="uid://bsk83rqptde5o"]
 
 [ext_resource type="Script" path="res://Scripts/Pincho.gd" id="1_8jrm6"]
 [ext_resource type="Texture2D" uid="uid://cjn57ytrm5opu" path="res://art/Other/spike.png" id="2_kqe11"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivv2i"]
-size = Vector2(33, 8)
 
 [node name="Pincho" type="Node2D"]
 script = ExtResource("1_8jrm6")
 
 [node name="Pincho" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pincho"]
-position = Vector2(-0.5, -3)
-shape = SubResource("RectangleShape2D_ivv2i")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pincho"]
+position = Vector2(5.09844, -0.690625)
+scale = Vector2(1.20313, 1.20313)
+build_mode = 1
+polygon = PackedVector2Array(-13, -7, -17, 1, 10, 1, 6, -7, 5, -7, 1, 0, 0, 0, -3, -7, -4, -7, -8, 0, -9, 0, -12, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pincho"]
-position = Vector2(-12.5606, -5.42298)
+position = Vector2(-9, -6)
 rotation = -0.00523599
-scale = Vector2(0.803896, 0.803896)
+scale = Vector2(0.0372434, 0.0335589)
 texture = ExtResource("2_kqe11")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Pincho"]
-position = Vector2(-0.560596, -5.42298)
+position = Vector2(2, -6)
 rotation = -0.00523599
-scale = Vector2(0.803896, 0.803896)
+scale = Vector2(0.0372434, 0.0335589)
 texture = ExtResource("2_kqe11")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Pincho"]
-position = Vector2(11.4394, -5.42298)
+position = Vector2(13, -6)
 rotation = -0.00523599
-scale = Vector2(0.803896, 0.803896)
+scale = Vector2(0.0372434, 0.0335589)
 texture = ExtResource("2_kqe11")
 
 [connection signal="body_entered" from="Pincho" to="." method="_on_body_entered"]
