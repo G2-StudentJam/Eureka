@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var vidas : int = 5
 
 var SPEED = 20
 var RUNNING_SPEED = 150
@@ -262,11 +263,16 @@ func onCheckpoint():
 	checkpoint_save.habilidades = habilidades
 
 func onDeath():
-	if has_checkpoint:
-		position.x = checkpoint_save.position.x
-		position.y = checkpoint_save.position.y
-		item_inventory = checkpoint_save.inventory
-		habilidades = checkpoint_save.habilidades
+	vidas -= 1
+	$CanvasLayer/Vidas.text = str(vidas)
+	if vidas > 0:
+		if has_checkpoint:
+			position.x = checkpoint_save.position.x
+			position.y = checkpoint_save.position.y
+			item_inventory = checkpoint_save.inventory
+			habilidades = checkpoint_save.habilidades
+		else:
+			get_tree().reload_current_scene()
+			get_tree().change_scene_to_file("res://ui/Pantalla_muerte.tscn")
 	else:
-		get_tree().reload_current_scene()
 		get_tree().change_scene_to_file("res://ui/Pantalla_muerte.tscn")
