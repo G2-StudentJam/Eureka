@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://ceg5jypq84w21"]
+[gd_scene load_steps=48 format=3 uid="uid://ceg5jypq84w21"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_7rjya"]
 [ext_resource type="Texture2D" uid="uid://crdj1mv2jc272" path="res://art/Items/cactus.png" id="3_t0nr6"]
@@ -22,8 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://gbpi21gi7g6b" path="res://characters/player.tscn" id="19_ip0hc"]
 [ext_resource type="Texture2D" uid="uid://b2sctsclykjei" path="res://Backgrounds/fondo_bueno.png" id="20_dh5cv"]
 [ext_resource type="Script" path="res://ui/UI.gd" id="21_8puk5"]
+[ext_resource type="Texture2D" uid="uid://crqd3vglldpdq" path="res://art/vero/deChill.png" id="22_36jtv"]
 [ext_resource type="Texture2D" uid="uid://byc817feyk8xd" path="res://art/Menu/inventory.png" id="22_dwymr"]
 [ext_resource type="Texture2D" uid="uid://dmj6o1jbmwvse" path="res://art/Sprites/Botas.png" id="23_ukxio"]
+[ext_resource type="FontFile" uid="uid://hacfqpl7chki" path="res://art/joystix monospace.otf" id="24_knj0v"]
 [ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="24_u484n"]
 [ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://art/Sprites/calcetin.png" id="25_eo2ll"]
 [ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://art/Sprites/paracaida.png" id="26_v6yhc"]
@@ -31,7 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="28_85nua"]
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="29_6jwyh"]
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="30_8ymrn"]
-[ext_resource type="PackedScene" uid="uid://ctjt6bhapil8m" path="res://elements/pinchos.tscn" id="32_bdptw"]
 [ext_resource type="PackedScene" uid="uid://d00gfsa5s7oal" path="res://elements/checkpoint_node.tscn" id="32_n3i5p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d473s"]
@@ -1051,7 +1052,7 @@ editor_draw_drag_margin = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Player/Camera2D"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
-motion_scale = Vector2(0.1, 0)
+motion_scale = Vector2(0.05, 0)
 metadata/_edit_lock_ = true
 
 [node name="MountainsA" type="Sprite2D" parent="Player/Camera2D/ParallaxBackground/ParallaxLayer"]
@@ -1063,6 +1064,20 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 script = ExtResource("21_8puk5")
+
+[node name="DeChill" type="Sprite2D" parent="Player/CanvasLayer"]
+position = Vector2(347, 13)
+scale = Vector2(0.0875, 0.0875)
+texture = ExtResource("22_36jtv")
+
+[node name="Vidas" type="RichTextLabel" parent="Player/CanvasLayer"]
+offset_left = 363.0
+offset_top = 3.0
+offset_right = 379.0
+offset_bottom = 22.0
+theme_override_fonts/normal_font = ExtResource("24_knj0v")
+text = "5"
+scroll_active = false
 
 [node name="Inventario" type="Sprite2D" parent="Player/CanvasLayer"]
 modulate = Color(1, 1, 1, 0.705882)
@@ -1141,16 +1156,6 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Paus" type="CanvasLayer" parent="."]
 
-[node name="Pincho_movil" parent="." instance=ExtResource("32_bdptw")]
-position = Vector2(213, 148)
-is_moving = true
-duration = 5.0
-
-[node name="Pincho_movil2" parent="." instance=ExtResource("32_bdptw")]
-position = Vector2(167, 138)
-offset = Vector2(0, 10)
-duration = 5.0
-
 [connection signal="guante_recogido" from="Guantes" to="Player" method="_on_guantes_guante_recogido"]
 [connection signal="botas_recogidas" from="Botas" to="Player" method="_on_botas_botas_recogidas"]
 [connection signal="paracaidas_recogido" from="Paracaidas" to="Player" method="_on_paracaidas_paracaidas_recogido"]
@@ -1166,5 +1171,3 @@ duration = 5.0
 [connection signal="playerEnteredCheckpoint" from="Checkpoint2" to="Player" method="onCheckpoint"]
 [connection signal="playerEnteredCheckpoint" from="Checkpoint3" to="Player" method="onCheckpoint"]
 [connection signal="playerEnteredCheckpoint" from="Checkpoint4" to="Player" method="onCheckpoint"]
-[connection signal="player_hit_spikes" from="Pincho_movil" to="Player" method="onDeath"]
-[connection signal="player_hit_spikes" from="Pincho_movil2" to="Player" method="onDeath"]
