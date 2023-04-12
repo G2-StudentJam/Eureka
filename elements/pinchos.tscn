@@ -8,19 +8,13 @@ script = ExtResource("1_swgfa")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
-position = Vector2(5.09844, -0.690625)
-scale = Vector2(1.20313, 1.20313)
-build_mode = 1
-polygon = PackedVector2Array(-13, -7, -17, 1, 10, 1, 6, -7, 5, -7, 1, 0, 0, 0, -3, -7, -4, -7, -8, 0, -9, 0, -12, -7)
-
 [node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D/Area2D"]
 position = Vector2(5.09844, -0.690625)
 scale = Vector2(1.20313, 1.20313)
 build_mode = 1
-polygon = PackedVector2Array(-13, -7, -17, 1, 10, 1, 6, -7, 5, -7, 1, 0, 0, 0, -3, -7, -4, -7, -8, 0, -9, 0, -12, -7)
+polygon = PackedVector2Array(-12.5493, -7.73763, -16.7051, 0.574024, 9.89216, 0.574024, 5.73634, -7.73763, 0.749345, -1.91947, -3.40648, -7.73763, -8.39347, -1.91947)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 position = Vector2(-9, -6)
