@@ -4,8 +4,9 @@ signal player_hit_spikes
 
 @export var is_moving : bool
 @export var offset = Vector2(0, -10)
+var quieto = Vector2(0,0)
 @export var duration = 1.0
-@export var waiting = 1.0
+@export var waiting = 0.5
 
 func _ready():
 	if is_moving:
