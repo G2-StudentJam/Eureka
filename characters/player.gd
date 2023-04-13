@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var vidas : int = 5
+@export var vidas : int = 9
 
 var SPEED = 20
 var RUNNING_SPEED = 150

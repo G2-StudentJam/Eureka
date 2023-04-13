@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bx7sfk6i2u456"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_yjatg"]
-[ext_resource type="Texture2D" uid="uid://svjhxawjsgkw" path="res://Backgrounds/fondo_inicio.png" id="2_sn08y"]
-[ext_resource type="Texture2D" uid="uid://c4i84lrks6jij" path="res://art/Other/titulo.png" id="3_i4ulk"]
+[ext_resource type="Texture2D" uid="uid://dtht5x8kmfhjq" path="res://art/Background/paisaje.png" id="2_y8iyy"]
+[ext_resource type="Texture2D" uid="uid://du7gkusfolvcr" path="res://art/Menu/title.png" id="3_xtiff"]
 [ext_resource type="Texture2D" uid="uid://c35bb1s2jd7tl" path="res://art/Other/start.png" id="3_ynqwc"]
 [ext_resource type="Texture2D" uid="uid://bijw7jkinafus" path="res://art/Other/credits.png" id="4_0m075"]
 [ext_resource type="Texture2D" uid="uid://bqfup27t6ifb6" path="res://art/Other/quit.png" id="5_aho7w"]
@@ -57,9 +57,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(61, -29)
-scale = Vector2(0.561162, 0.47612)
-texture = ExtResource("2_sn08y")
+position = Vector2(-8, -8)
+scale = Vector2(0.680353, 0.577248)
+texture = ExtResource("2_y8iyy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Title_size"
@@ -70,7 +70,7 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
 position = Vector2(194, 41)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_i4ulk")
+texture = ExtResource("3_xtiff")
 
 [node name="Start button" type="Button" parent="."]
 layout_mode = 0
