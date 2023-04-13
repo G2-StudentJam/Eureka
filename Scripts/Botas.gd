@@ -1,6 +1,7 @@
 extends Area2D
 
 signal botas_recogidas
+
 const ANIMATION_SPEED = 5
 var animation_direction = -1
 

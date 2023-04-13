@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dpvj1g26en24" path="res://art/Terrain/plataformas_arreglado.png" id="9_dahby"]
 [ext_resource type="Texture2D" uid="uid://kwccwn0nm1h2" path="res://art/Terrain/escaleras_escalables.png" id="10_fj60e"]
 [ext_resource type="Texture2D" uid="uid://bci01741hiqvq" path="res://art/Terrain/escaleras_flipped.png" id="10_j53bd"]
-[ext_resource type="PackedScene" path="res://Objects/guantes.tscn" id="11_5mdyb"]
-[ext_resource type="PackedScene" path="res://Objects/botas.tscn" id="12_ftwn5"]
+[ext_resource type="PackedScene" uid="uid://dmfd5unqon2mg" path="res://Objects/guantes.tscn" id="11_5mdyb"]
+[ext_resource type="PackedScene" uid="uid://ceidu015sgcvp" path="res://Objects/botas.tscn" id="12_ftwn5"]
 [ext_resource type="PackedScene" path="res://elements/paracaidas.tscn" id="13_nw4nq"]
 [ext_resource type="Texture2D" uid="uid://dnstu0cf0s7ny" path="res://art/Terrain/escaleras_cambiadas.png" id="13_tcc56"]
 [ext_resource type="PackedScene" uid="uid://dauauybg0exiq" path="res://Objects/calcetin.tscn" id="14_dussp"]
@@ -1092,7 +1092,7 @@ scale = Vector2(0.10875, 0.10875)
 texture = ExtResource("2_ql0wq")
 
 [node name="Calavera" type="Sprite2D" parent="."]
-position = Vector2(802, -129)
+position = Vector2(919, -145)
 scale = Vector2(0.054375, 0.054375)
 texture = ExtResource("36_hiiqf")
 

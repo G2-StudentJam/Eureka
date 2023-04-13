@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://ceidu015sgcvp"]
 
 [ext_resource type="Script" path="res://Objects/botas.gd" id="1_5xvvc"]
 [ext_resource type="Script" path="res://Scripts/Botas.gd" id="2_cd4sm"]
