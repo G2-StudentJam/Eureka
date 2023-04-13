@@ -123,7 +123,7 @@ func _physics_process(delta):
 			if (can_paraglide):
 				velocity.y = 0
 				can_paraglide = false
-			velocity.y += gravity/5 * delta
+			velocity.y += gravity/10 * delta
 			is_paragliding = true
 		else:
 			velocity.y += gravity * delta
