@@ -7,6 +7,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = true
 	
 func _ready():
+	get_tree().root.set("content_scale_factor",3)
 	$Player/CanvasLayer/Vidas.text = str($Player.vidas)
 
 func _on_bg_music_finished():

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://csf360ie5nwev"]
+
+[ext_resource type="Texture2D" uid="uid://caqu038ws473c" path="res://art/Menu/controls.png" id="1_45kba"]
+[ext_resource type="Script" path="res://ui/control_screen.gd" id="1_j2s5v"]
+
+[node name="ControlScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j2s5v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 656.0
+texture = ExtResource("1_45kba")
+expand_mode = 1
+stretch_mode = 4

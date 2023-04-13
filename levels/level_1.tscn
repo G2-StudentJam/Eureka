@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bci01741hiqvq" path="res://art/Terrain/escaleras_flipped.png" id="10_j53bd"]
 [ext_resource type="PackedScene" path="res://Objects/guantes.tscn" id="11_5mdyb"]
 [ext_resource type="PackedScene" path="res://Objects/botas.tscn" id="12_ftwn5"]
-[ext_resource type="PackedScene" path="res://elements/paracaidas.tscn" id="13_nw4nq"]
+[ext_resource type="PackedScene" uid="uid://b50tlm17tw347" path="res://elements/paracaidas.tscn" id="13_nw4nq"]
 [ext_resource type="Texture2D" uid="uid://dnstu0cf0s7ny" path="res://art/Terrain/escaleras_cambiadas.png" id="13_tcc56"]
 [ext_resource type="PackedScene" uid="uid://dauauybg0exiq" path="res://Objects/calcetin.tscn" id="14_dussp"]
 [ext_resource type="PackedScene" uid="uid://cqpmk0f5ho1h5" path="res://elements/tank.tscn" id="15_qxnef"]
@@ -29,13 +29,13 @@
 [ext_resource type="FontFile" uid="uid://hacfqpl7chki" path="res://art/joystix monospace.otf" id="24_knj0v"]
 [ext_resource type="Texture2D" uid="uid://bto64mwdvn6h3" path="res://art/Sprites/Guantes.png" id="24_u484n"]
 [ext_resource type="Texture2D" uid="uid://blhyjd3du4sy8" path="res://art/Sprites/calcetin.png" id="25_eo2ll"]
-[ext_resource type="Texture2D" uid="uid://dm716oudictnm" path="res://art/Sprites/paracaida.png" id="26_v6yhc"]
 [ext_resource type="AudioStream" uid="uid://dw4t2w85q5ojr" path="res://audio/background_music.wav" id="27_snee5"]
 [ext_resource type="AudioStream" uid="uid://bio5tscwhc0df" path="res://audio/jump_sound_1.wav" id="28_85nua"]
 [ext_resource type="AudioStream" uid="uid://jbu4bc04smu8" path="res://audio/jump_sound_2.wav" id="29_6jwyh"]
 [ext_resource type="AudioStream" uid="uid://cpuflhmgd2swp" path="res://audio/jump_sound_3.wav" id="30_8ymrn"]
 [ext_resource type="PackedScene" uid="uid://ctjt6bhapil8m" path="res://elements/pinchos.tscn" id="32_bdptw"]
 [ext_resource type="PackedScene" uid="uid://d00gfsa5s7oal" path="res://elements/checkpoint_node.tscn" id="32_n3i5p"]
+[ext_resource type="Texture2D" uid="uid://dnceq08du807d" path="res://art/Sprites/paracaidascerrado.png" id="32_ux2b1"]
 [ext_resource type="Texture2D" uid="uid://dxudug6flmnh2" path="res://art/Items/calavera.png" id="36_hiiqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yk3vs"]
@@ -652,6 +652,7 @@ position = Vector2(1783, 69)
 process_mode = 1
 position = Vector2(42, -1)
 scale = Vector2(0.241609, 0.241609)
+vidas = 10
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -679,17 +680,17 @@ metadata/_edit_lock_ = true
 script = ExtResource("21_8puk5")
 
 [node name="DeChill" type="Sprite2D" parent="Player/CanvasLayer"]
-position = Vector2(347, 13)
+position = Vector2(340, 13)
 scale = Vector2(0.0875, 0.0875)
 texture = ExtResource("22_36jtv")
 
 [node name="Vidas" type="RichTextLabel" parent="Player/CanvasLayer"]
-offset_left = 363.0
+offset_left = 351.0
 offset_top = 3.0
 offset_right = 379.0
 offset_bottom = 22.0
 theme_override_fonts/normal_font = ExtResource("24_knj0v")
-text = "5"
+text = "10"
 scroll_active = false
 
 [node name="Inventario" type="Sprite2D" parent="Player/CanvasLayer"]
@@ -724,11 +725,12 @@ scale = Vector2(0.048, 0.048)
 texture = ExtResource("25_eo2ll")
 
 [node name="Paracaidas" type="TextureRect" parent="Player/CanvasLayer"]
-offset_left = 74.0
-offset_right = 874.0
-offset_bottom = 800.0
+offset_left = 89.0
+offset_top = 5.0
+offset_right = 339.0
+offset_bottom = 255.0
 scale = Vector2(0.06, 0.06)
-texture = ExtResource("26_v6yhc")
+texture = ExtResource("32_ux2b1")
 
 [node name="Background" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("27_snee5")
