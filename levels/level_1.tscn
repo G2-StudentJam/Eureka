@@ -1073,6 +1073,15 @@ position = Vector2(1948, -279)
 rotation = 1.5708
 scale = Vector2(-1, 1)
 
+[node name="Pincho88" parent="." instance=ExtResource("32_bdptw")]
+position = Vector2(1110, -200)
+rotation = 4.71239
+
+[node name="Pincho89" parent="." instance=ExtResource("32_bdptw")]
+position = Vector2(1111, -200)
+rotation = 1.5708
+scale = Vector2(-1, 1)
+
 [node name="Pincho86" parent="." instance=ExtResource("32_bdptw")]
 position = Vector2(503, 122)
 rotation = 4.71239
@@ -1220,6 +1229,8 @@ texture = ExtResource("5_mi8wi")
 [connection signal="player_hit_spikes" from="Pincho50" to="Player" method="onDeath"]
 [connection signal="player_hit_spikes" from="Pincho45" to="Player" method="onDeath"]
 [connection signal="player_hit_spikes" from="Pincho46" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho88" to="Player" method="onDeath"]
+[connection signal="player_hit_spikes" from="Pincho89" to="Player" method="onDeath"]
 [connection signal="player_hit_spikes" from="Pincho86" to="Player" method="onDeath"]
 [connection signal="player_hit_spikes" from="Pincho87" to="Player" method="onDeath"]
 [connection signal="player_hit_spikes" from="Pincho39" to="Player" method="onDeath"]
